@@ -30,8 +30,14 @@ export default function BusinessModal({ id }) {
     }
     `;
 
-    const res = API.graphql(graphqlOperation(ListItems));
-    console.log(res)
+    API.graphql(graphqlOperation(ListItems))
+    .then(res => {
+        console.log(res)
+    },
+    err => {
+        console.log(err)
+    })
+    
 
     return (
         <Card className="modal-card">
