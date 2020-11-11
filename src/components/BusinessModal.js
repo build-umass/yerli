@@ -7,74 +7,46 @@ import Container from 'react-bootstrap/Container';
 import { AiFillPhone, AiOutlineGlobal, AiOutlineClockCircle } from 'react-icons/ai';
 import { BiFoodMenu } from 'react-icons/bi';
 import { BsGeoAlt } from 'react-icons/bs';
-import { API, graphqlOperation } from 'aws-amplify';
 
-export default function BusinessModal({ id }) {
-    const ListItems = `
-    query {
-        listLocalBetaVersions {
-        items {
-            id
-            name
-            flags
-            workers
-            typeOfBusiness
-            photo
-            email
-            city
-            lon
-            lat
-            typeOfCuisine
-        }
-        }
-    }
-    `;
-
-    API.graphql(graphqlOperation(ListItems))
-    .then(res => {
-        console.log(res)
-    },
-    err => {
-        console.log(err)
-    })
-    
+export default function BusinessModal({ data }) {
+    console.log(data)
 
     return (
         <Card className="modal-card">
             <Card.Body>
                 <Row>
                     <Col md={6} className="text-left">
-                        <h3 className="text-dark modal-text">Subway</h3>
+                        <h3 className="text-dark modal-text">{data.name}</h3>
                     </Col>
                 </Row>
                 <Row>
                     <Col className="text-left">
-                        <h5 className="text-dark modal-text">About Subway • $$$</h5>
+                        <h5 className="text-dark modal-text">About {data.name} • $$$</h5>
                     </Col>
-                    <Col className="text-left">
-                        <h5 className="text-dark modal-text">Minority Owned</h5>
-                    </Col>
+                    {data.flags.length > 0 ? <Col className="text-left">
+                        <h5 className="text-dark modal-text">{data.flags[0]}</h5>
+                    </Col> : <></>}
                 </Row>
                 <Row>
                     <Col className="text-left">
-                        <div className="text-dark modal-text">We Create delicious and custom submarine should create delicious and custom submarine sandwiches</div>
+                        <div className="text-dark modal-text">{data.business_bio}</div>
                     </Col>
                     <Col className="text-left">
                         <div className="text-dark modal-text">
                             <AiFillPhone size={20} color='black' />
-                                        413-256-1919
+                                        {data.phone_num}
                                     </div>
                         <div className="text-dark modal-text">
                             <AiOutlineGlobal size={20} color='black' />
-                            <a href='https://www.subway.com/en-us'>https://www.subway.com/en-us</a>
+                            <a href='https://www.subway.com/en-us'>{data.website}</a>
                         </div>
                         <div className="text-dark modal-text">
                             <AiOutlineClockCircle size={20} color='black' />
-                                        11am-9pm
+                                        {data.hours_of_oper}
                                     </div>
                         <div className="text-dark modal-text">
                             <BsGeoAlt size={20} color='black' />
-                                        4 Main st Amherst Ma 01002
+                                        {data.streetAddress}
                                     </div>
                         <div className="text-dark modal-text">
                             <BiFoodMenu size={20} color='black' />
@@ -88,33 +60,31 @@ export default function BusinessModal({ id }) {
                             Best Sellers:
                                     </h5>
                         <div className='text-dark'>
-                            Italian BMI
+                            {data.topProducts[0]}
                                     </div>
                         <div className='text-dark'>
-                            Steak and Cheese
+                        {data.topProducts[1]}
                                     </div>
                         <div className='text-dark'>
-                            Chicken Bacon Ranch
+                        {data.topProducts[2]}
                                     </div>
                     </Col>
                     <Col className="text-left">
                         <h5 className='text-dark'>
                             A word from the owner:
                                     </h5>
-                        <div className='text-dark'>
-                            Hello! My name is Jason Paulo. I started working at a local Subway restaurant at the age of 15. I became very proud and loyal to the brand and the idea of being a franchisee. The thought of becoming my own boss  fascinated  me . I bought became a franchisee and bought my first store at the age of 19! Now 31 years old, I have been here Amherst for about 4 years. I love this town!
-                                    </div>
+                        <div className='text-dark'>{data.owner_bio}</div>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Image src='https://theyerli.com/p/0/profile0.jpeg' width={'100%'}></Image>
+                        <Image src={data.photos[0]} width={'100%'}></Image>
                     </Col>
                     <Col>
-                        <Image src='https://theyerliphotos.s3.amazonaws.com/icons/fork.png' width={'100%'}></Image>
+                        <Image src={data.photos[1]} width={'100%'}></Image>
                     </Col>
                     <Col>
-                        <Image src='https://theyerli.com/p/0/profile2.jpeg' width={'100%'}></Image>
+                        <Image src={data.photos[2]} width={'100%'}></Image>
                     </Col>
                 </Row>
             </Card.Body>
