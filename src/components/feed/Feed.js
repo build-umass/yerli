@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from './Slider'
-import BusinessModal from '../BusinessModal';
 import { API, graphqlOperation } from 'aws-amplify';
 
 export default class Feed extends React.Component {
@@ -26,6 +25,7 @@ export default class Feed extends React.Component {
                 hours_of_oper
                 phone_num
                 website
+                photo
                 photos
                 email
                 streetAddress
@@ -77,7 +77,6 @@ export default class Feed extends React.Component {
                         />
                     ))
                 }
-                    {/* <BusinessModal data={this.state.items[3]} /> */}
                 </>
             )
         }
