@@ -4,7 +4,6 @@ import './feed.css'
 
 export default function Slider({businessArr, businessCategory, businessDescrip}) {
     let [businesses, setBusinesses] = useState(businessArr);
-
     return (
         // Map Cards to Businesses
         // Add
@@ -15,7 +14,7 @@ export default function Slider({businessArr, businessCategory, businessDescrip})
             </div>
             <div className="slider-wrapper">
                 {businesses.map((curr) => (
-                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.picture}/>
+                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photo} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
                 ))}
                 <div className="nextSlide">
 
