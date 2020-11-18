@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
-import Feed from './Feed';
+import Feed from './feed/Feed';
 import { BsHouseDoor, BsMap, BsSearch } from 'react-icons/bs'
 
 export default function NavbarComponent() {
