@@ -1,207 +1,327 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateLocalBetaVersion = /* GraphQL */ `
-  subscription OnCreateLocalBetaVersion(
+export const onCreateLocalVersionProd = /* GraphQL */ `
+  subscription OnCreateLocalVersionProd(
+    $flags: String
     $id: ID
     $name: String
-    $flags: String
-    $workers: Int
     $typeOfBusiness: String
+    $workers: Int
   ) {
-    onCreateLocalBetaVersion(
+    onCreateLocalVersionProd(
+      flags: $flags
       id: $id
       name: $name
-      flags: $flags
-      workers: $workers
       typeOfBusiness: $typeOfBusiness
+      workers: $workers
     ) {
-      name
-      flags
-      workers
-      typeOfBusiness
+      id
+      address
+      bio
       business_bio
-      owner_bio
+      city
+      email
+      flags
       hours_of_oper
+      lat
+      lon
+      name
+      owner_bio
       phone_num
-      topProducts
-      website
       photo
       photos
-      address
-      email
-      city
-      lon
-      lat
       streetAddress
+      topProducts
+      typeOfBusiness
       typeOfCuisine
-      bio
-      id
+      website
+      workers
     }
   }
 `;
-export const onUpdateLocalBetaVersion = /* GraphQL */ `
-  subscription OnUpdateLocalBetaVersion(
+export const onDeleteLocalVersionProd = /* GraphQL */ `
+  subscription OnDeleteLocalVersionProd(
+    $flags: String
     $id: ID
     $name: String
-    $flags: String
-    $workers: Int
     $typeOfBusiness: String
+    $workers: Int
   ) {
-    onUpdateLocalBetaVersion(
+    onDeleteLocalVersionProd(
+      flags: $flags
       id: $id
       name: $name
-      flags: $flags
-      workers: $workers
       typeOfBusiness: $typeOfBusiness
+      workers: $workers
     ) {
-      name
-      flags
-      workers
-      typeOfBusiness
+      id
+      address
+      bio
       business_bio
-      owner_bio
+      city
+      email
+      flags
       hours_of_oper
+      lat
+      lon
+      name
+      owner_bio
       phone_num
-      topProducts
-      website
       photo
       photos
-      address
-      email
-      city
-      lon
-      lat
       streetAddress
+      topProducts
+      typeOfBusiness
       typeOfCuisine
-      bio
-      id
+      website
+      workers
     }
   }
 `;
-export const onDeleteLocalBetaVersion = /* GraphQL */ `
-  subscription OnDeleteLocalBetaVersion(
+export const onUpdateLocalVersionProd = /* GraphQL */ `
+  subscription OnUpdateLocalVersionProd(
+    $flags: String
     $id: ID
     $name: String
-    $flags: String
-    $workers: Int
     $typeOfBusiness: String
+    $workers: Int
   ) {
-    onDeleteLocalBetaVersion(
+    onUpdateLocalVersionProd(
+      flags: $flags
       id: $id
       name: $name
-      flags: $flags
-      workers: $workers
       typeOfBusiness: $typeOfBusiness
+      workers: $workers
     ) {
-      name
-      flags
-      workers
-      typeOfBusiness
+      id
+      address
+      bio
       business_bio
-      owner_bio
+      city
+      email
+      flags
       hours_of_oper
+      lat
+      lon
+      name
+      owner_bio
       phone_num
-      topProducts
-      website
       photo
       photos
-      address
-      email
-      city
-      lon
-      lat
       streetAddress
+      topProducts
+      typeOfBusiness
       typeOfCuisine
-      bio
-      id
+      website
+      workers
     }
   }
 `;
-export const onCreateDeal = /* GraphQL */ `
-  subscription OnCreateDeal(
-    $id: ID
-    $title: String
+export const onCreatePromotionProd = /* GraphQL */ `
+  subscription OnCreatePromotionProd(
+    $businessID: ID
     $content: String
-    $price: Int
-    $rating: Float
+    $endDate: AWSDateTime
+    $id: ID
+    $percent: Float
   ) {
-    onCreateDeal(
-      id: $id
-      title: $title
+    onCreatePromotionProd(
+      businessID: $businessID
       content: $content
-      price: $price
-      rating: $rating
+      endDate: $endDate
+      id: $id
+      percent: $percent
     ) {
-      id
-      title
-      content
-      price
-      rating
       businessID
+      content
+      endDate
+      id
       percent
       photo
       photos
+      price
+      rating
       startDate
-      endDate
+      title
     }
   }
 `;
-export const onUpdateDeal = /* GraphQL */ `
-  subscription OnUpdateDeal(
-    $id: ID
-    $title: String
+export const onUpdatePromotionProd = /* GraphQL */ `
+  subscription OnUpdatePromotionProd(
+    $businessID: ID
     $content: String
-    $price: Int
-    $rating: Float
+    $endDate: AWSDateTime
+    $id: ID
+    $percent: Float
   ) {
-    onUpdateDeal(
-      id: $id
-      title: $title
+    onUpdatePromotionProd(
+      businessID: $businessID
       content: $content
-      price: $price
-      rating: $rating
+      endDate: $endDate
+      id: $id
+      percent: $percent
     ) {
-      id
-      title
-      content
-      price
-      rating
       businessID
+      content
+      endDate
+      id
       percent
       photo
       photos
+      price
+      rating
       startDate
-      endDate
+      title
     }
   }
 `;
-export const onDeleteDeal = /* GraphQL */ `
-  subscription OnDeleteDeal(
-    $id: ID
-    $title: String
+export const onDeletePromotionProd = /* GraphQL */ `
+  subscription OnDeletePromotionProd(
+    $businessID: ID
     $content: String
-    $price: Int
-    $rating: Float
+    $endDate: AWSDateTime
+    $id: ID
+    $percent: Float
   ) {
-    onDeleteDeal(
-      id: $id
-      title: $title
+    onDeletePromotionProd(
+      businessID: $businessID
       content: $content
-      price: $price
-      rating: $rating
+      endDate: $endDate
+      id: $id
+      percent: $percent
     ) {
-      id
-      title
-      content
-      price
-      rating
       businessID
+      content
+      endDate
+      id
       percent
       photo
       photos
+      price
+      rating
       startDate
-      endDate
+      title
+    }
+  }
+`;
+export const onCreatePost = /* GraphQL */ `
+  subscription OnCreatePost(
+    $id: ID
+    $content: String
+    $businessID: ID
+    $media: [String]
+    $upvote: Int
+    $author: ID
+  ) {
+    onCreatePost(
+      id: $id
+      content: $content
+      businessID: $businessID
+      media: $media
+      upvote: $upvote
+      author: $author
+    ) {
+      id
+      content
+      businessID
+      media
+      upvote
+      author
+      stars
+      lat
+      long
+      reported
+    }
+  }
+`;
+export const onUpdatePost = /* GraphQL */ `
+  subscription OnUpdatePost(
+    $id: ID
+    $content: String
+    $businessID: ID
+    $media: [String]
+    $upvote: Int
+    $author: ID
+  ) {
+    onUpdatePost(
+      id: $id
+      content: $content
+      businessID: $businessID
+      media: $media
+      upvote: $upvote
+      author: $author
+    ) {
+      id
+      content
+      businessID
+      media
+      upvote
+      author
+      stars
+      lat
+      long
+      reported
+    }
+  }
+`;
+export const onDeletePost = /* GraphQL */ `
+  subscription OnDeletePost(
+    $id: ID
+    $content: String
+    $businessID: ID
+    $media: [String]
+    $upvote: Int
+    $author: ID
+  ) {
+    onDeletePost(
+      id: $id
+      content: $content
+      businessID: $businessID
+      media: $media
+      upvote: $upvote
+      author: $author
+    ) {
+      id
+      content
+      businessID
+      media
+      upvote
+      author
+      stars
+      lat
+      long
+      reported
+    }
+  }
+`;
+export const onCreateReport = /* GraphQL */ `
+  subscription OnCreateReport($id: ID, $info: String, $postID: ID, $type: Int) {
+    onCreateReport(id: $id, info: $info, postID: $postID, type: $type) {
+      id
+      info
+      postID
+      type
+    }
+  }
+`;
+export const onUpdateReport = /* GraphQL */ `
+  subscription OnUpdateReport($id: ID, $info: String, $postID: ID, $type: Int) {
+    onUpdateReport(id: $id, info: $info, postID: $postID, type: $type) {
+      id
+      info
+      postID
+      type
+    }
+  }
+`;
+export const onDeleteReport = /* GraphQL */ `
+  subscription OnDeleteReport($id: ID, $info: String, $postID: ID, $type: Int) {
+    onDeleteReport(id: $id, info: $info, postID: $postID, type: $type) {
+      id
+      info
+      postID
+      type
     }
   }
 `;

@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "thelocalbetaa8b72f4b_identitypool_a8b72f4b",
+    "identityPoolName": "production1Idenitiy",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "theloca8b72f4b",
-    "userPoolName": "thelocalbetaa8b72f4b_userpool_a8b72f4b",
+    "resourceNameTruncated": "produce32a8a70",
+    "userPoolName": "production1Users",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,14 +28,14 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "theloca8b72f4b_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "produce32a8a70_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "useDefault": "manual",
     "authSelections": "identityPoolAndUserPool",
-    "resourceName": "thelocalbetaa8b72f4ba8b72f4b",
+    "resourceName": "production1",
     "thirdPartyAuth": false,
     "usernameAttributes": [
-        "email, phone_number"
+        "email"
     ],
     "userPoolGroups": false,
     "adminQueries": false,
