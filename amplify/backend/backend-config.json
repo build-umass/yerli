@@ -1,16 +1,15 @@
 {
-  "auth": {
-    "thelocalbetaa8b72f4ba8b72f4b": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    }
-  },
-  "analytics": {
-    "thelocalbeta": {
-      "service": "Pinpoint",
-      "providerPlugin": "awscloudformation"
-    }
-  },
-  "api": {}
+	"auth": {
+		"production1": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"analytics": {
+		"production1": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	}
 }

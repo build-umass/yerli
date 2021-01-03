@@ -15,11 +15,10 @@ export default class Feed extends React.Component {
     componentDidMount() {
         const ListItems = `
         query {
-            listLocalBetaVersions {
+            listLocalVersionProds {
             items {
                 id
                 name
-                flags
                 business_bio
                 owner_bio
                 hours_of_oper
@@ -28,7 +27,7 @@ export default class Feed extends React.Component {
                 photo
                 photos
                 email
-                streetAddress
+                address
                 topProducts
             }
             }
@@ -37,7 +36,7 @@ export default class Feed extends React.Component {
 
         API.graphql(graphqlOperation(ListItems))
             .then(res => {
-                const items = (res.data.listLocalBetaVersions.items);
+                const items = (res.data.listLocalVersionProds.items);
                 this.setState({ isLoaded: true, items })
             },
                 error => {
@@ -61,7 +60,8 @@ export default class Feed extends React.Component {
         const { error, isLoaded, items } = this.state;
         let key = 0;
         if (error) {
-            return <div>Error: {error.message}</div>;
+            console.log(error)
+            return <div>Error:</div>;
         } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {

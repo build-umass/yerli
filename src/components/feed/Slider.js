@@ -14,7 +14,7 @@ export default function Slider({businessArr, businessCategory, businessDescrip})
             </div>
             <div className="slider-wrapper">
                 {businesses.map((curr) => (
-                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photo} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
+                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
                 ))}
                 <div className="nextSlide">
 

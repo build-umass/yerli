@@ -1,5 +1,5 @@
 projects:
-  localBetaVersion:
+  yerliprod:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
@@ -11,5 +11,8 @@ projects:
         generatedFileName: ''
         docsFilePath: src/graphql
         region: us-east-1
-        apiId: mzcu3podezdofkz7edsdkq5el4
+        apiId: cl3etxyumfce7bt2rc3pewuoa4
         maxDepth: 2
+extensions:
+  amplify:
+    version: 3

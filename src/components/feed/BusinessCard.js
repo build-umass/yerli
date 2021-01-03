@@ -23,7 +23,7 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data })
           </Card.Body>
         </Card>
       </div>
-      <Modal show={showModal} onHide={() => setModal(false)}>
+      <Modal size='lg' show={showModal} onHide={() => setModal(false)}>
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
@@ -37,30 +37,30 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data })
               <Col className="text-left">
                 <h5 className="text-dark modal-text">About {data.name} • $$$</h5>
               </Col>
-              {data.flags.length > 0 ? <Col className="text-left">
+              {/* {data.flags.length > 0 ? <Col className="text-left">
                 <h5 className="text-dark modal-text">{data.flags[0]}</h5>
-              </Col> : <></>}
+              </Col> : <></>} */}
             </Row>
             <Row>
-              <Col className="text-left">
+              <Col md={6} className="text-left">
                 <div className="text-dark modal-text">{data.business_bio}</div>
               </Col>
-              <Col className="text-left">
+              <Col md={6} className="text-left">
                 <div className="text-dark modal-text">
                   <AiFillPhone size={20} color='black' />
-                  {data.phone_num}
+                  {'(' + data.phone_num.substring(0,3) + ') ' + data.phone_num.substring(3,6) + '-' + data.phone_num.substring(6,10)}
                 </div>
                 <div className="text-dark modal-text">
                   <AiOutlineGlobal size={20} color='black' />
-                  <a href='https://www.subway.com/en-us'>{data.website}</a>
+                  <a href={data.website} target='_blank'>{data.website}</a>
                 </div>
                 <div className="text-dark modal-text">
                   <AiOutlineClockCircle size={20} color='black' />
-                  {data.hours_of_oper}
+                  {/* {data.hours_of_oper} */'Mon-Thurs: 8-4pm'}
                 </div>
                 <div className="text-dark modal-text">
                   <BsGeoAlt size={20} color='black' />
-                  {data.streetAddress}
+                  {data.address}
                 </div>
                 <div className="text-dark modal-text">
                   <BiFoodMenu size={20} color='black' />
@@ -91,12 +91,6 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data })
               </Col>
             </Row>
             <Row>
-              <Col>
-                <Image src={data.photos[0]} width={'100%'}></Image>
-              </Col>
-              <Col>
-                <Image src={data.photos[1]} width={'100%'}></Image>
-              </Col>
               <Col>
                 <Image src={data.photos[2]} width={'100%'}></Image>
               </Col>

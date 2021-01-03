@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "TheLocalBeta",
+  "projectName": "Production",
   "version": "3.0",
   "frontend": "javascript",
   "javascript": {
