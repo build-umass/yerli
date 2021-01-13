@@ -65,3 +65,11 @@
   border-radius: 40px;
   /* border-style: dotted; */
 }
+
+.mapContainer {
+position: absolute;
+top: 8rem;
+right: 0;
+left: 0;
+bottom: 0;
+}
