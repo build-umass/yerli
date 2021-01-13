@@ -43,20 +43,25 @@ export default class Map extends React.Component {
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
     });
-
-    this.state.items.forEach(marker => {
-      const el = document.createElement('div');
-      el.className = 'marker';
-      el.style.backgroundImage = marker.photos[2];
-      el.style.width = '120px';
-      el.style.height = '200px';
-
-      new mapboxgl.Marker(el)
-        .setLngLat([marker.lon, marker.lat])
-        .addTo(this.state.map);
-    });
+    this.setState({ map })
+    
   }
   render() {
+    if(this.state.isLoaded){
+      this.state.items.forEach(marker => {
+        console.log(marker)
+        const el = document.createElement('div');
+        el.className = 'marker';
+        el.style.backgroundImage = 'url(' + marker.photos[1] + ')';
+        el.style.backgroundSize = 'cover'
+        el.style.width = '35px';
+        el.style.height = '50px';
+  
+        new mapboxgl.Marker(el)
+          .setLngLat([marker.lon, marker.lat])
+          .addTo(this.state.map);
+      });
+    }
     return (
       <div>
         <div ref={el => this.mapContainer = el} className="mapContainer" />
