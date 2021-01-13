@@ -6,7 +6,13 @@ import * as serviceWorker from './serviceWorker';
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
+
+import mapboxgl from 'mapbox-gl';
+
 Amplify.configure(awsconfig)
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiYXJrZWF0IiwiYSI6ImNranVvanU4OTI3bTQyemszdTd3dTE2NmsifQ.ryPfNIcgFmfHN4GBN8zlzQ'
 
 ReactDOM.render(
   <React.StrictMode>

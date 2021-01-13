@@ -68,15 +68,15 @@ export default class Feed extends React.Component {
             return (
                 <>
                     {
-                    sliders.map(curr => (
-                        <Slider
-                            businessArr={curr.places}
-                            businessCategory={curr.title}
-                            businessDescrip={curr.subtitle}
-                            key={key++}
-                        />
-                    ))
-                }
+                        sliders.map(curr => (
+                            <Slider
+                                businessArr={curr.places}
+                                businessCategory={curr.title}
+                                businessDescrip={curr.subtitle}
+                                key={key++}
+                            />
+                        ))
+                    }
                 </>
             )
         }

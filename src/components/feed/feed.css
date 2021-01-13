@@ -52,3 +52,15 @@ MODAL STYLES */
 .wrap {
 margin: .5rem 0;
 }
+
+.bottomImages {
+    margin-top: 20px;
+}
+
+.modal-text {
+    padding: 2px 0px;
+}
+
+.modalMainBody {
+    margin-bottom: 10px;
+}
