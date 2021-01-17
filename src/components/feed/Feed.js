@@ -19,6 +19,7 @@ export default class Feed extends React.Component {
             items {
                 id
                 name
+                flags
                 business_bio
                 owner_bio
                 hours_of_oper
@@ -45,16 +46,17 @@ export default class Feed extends React.Component {
     }
 
     render() {
+        console.log(this.state.items)
         let sliders = [
             {
                 title: "Nearby",
                 subtitle: "Businesses near you",
-                places: this.state.items.slice(0, this.state.items.length / 2)
+                places: this.state.items.filter(business => business.flags === null|| business.flags === "")
             },
             {
-                title: "Female + Veteran",
+                title: "Support Your Community",
                 subtitle: "Businesses owned by females, veterans, and racial minorities",
-                places: this.state.items.slice(this.state.items.length / 2, this.state.items.length)
+                places: this.state.items.filter(business => business.flags !== null && business.flags !== "")
             }
         ];
         const { error, isLoaded, items } = this.state;
