@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import BusinessCard from './BusinessCard.js'
 import './feed.css'
 
-export default function Slider({businessArr, businessCategory, businessDescrip}) {
+export default function Slider({businessArr, businessCategory, businessDescrip, currId}) {
     let [businesses, setBusinesses] = useState(businessArr);
     return (
         // Map Cards to Businesses
@@ -14,7 +14,7 @@ export default function Slider({businessArr, businessCategory, businessDescrip})
             </div>
             <div className="slider-wrapper">
                 {businesses.map((curr) => (
-                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
+                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)} curr={currId}/>
                 ))}
                 <div className="nextSlide">
 

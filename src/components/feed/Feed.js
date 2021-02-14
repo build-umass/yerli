@@ -46,7 +46,6 @@ export default class Feed extends React.Component {
     }
 
     render() {
-        console.log(this.state.items)
         let sliders = [
             {
                 title: "Nearby",
@@ -62,7 +61,6 @@ export default class Feed extends React.Component {
         const { error, isLoaded, items } = this.state;
         let key = 0;
         if (error) {
-            console.log(error)
             return <div>Error:</div>;
         } else if (!isLoaded) {
             return <div>Loading...</div>;
@@ -75,6 +73,7 @@ export default class Feed extends React.Component {
                                 businessArr={curr.places}
                                 businessCategory={curr.title}
                                 businessDescrip={curr.subtitle}
+                                currId={this.props.match.params.id}
                                 key={key++}
                             />
                         ))

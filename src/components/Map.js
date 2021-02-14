@@ -22,6 +22,7 @@ export default class Map extends React.Component {
       zoom: 13,
       items: [],
       modalOpen: false,
+      paramSet: false,
       currentMarker: null
     };
   }
@@ -77,6 +78,11 @@ export default class Map extends React.Component {
         el.style.backgroundSize = 'cover'
         el.style.width = '35px';
         el.style.height = '50px';
+
+        const id = this.props.match.params.id;
+        if(!this.state.paramSet && id !== undefined && id === marker.id){
+          this.setState({ paramSet: true, modalOpen: true, currentMarker: marker})
+        }    
 
         el.addEventListener('click', () => {
           this.setState({

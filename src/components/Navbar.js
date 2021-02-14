@@ -25,7 +25,7 @@ export default function NavbarComponent() {
                 </Form>
                 <Nav className="ml-auto">
                     <div>
-                        <Nav.Link href="/">
+                        <Nav.Link href="/explore">
                             <div className="Nav-Button">
                                 <BsHouseDoor size="35" color="#1c8d66" />
                                 <p>Feed</p>

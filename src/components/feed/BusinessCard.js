@@ -9,11 +9,11 @@ import { AiFillPhone, AiOutlineGlobal, AiOutlineClockCircle } from 'react-icons/
 import { BiFoodMenu } from 'react-icons/bi';
 import { BsGeoAlt } from 'react-icons/bs';
 
-export default function BusinessCard({ businessTitle, backgroundPicture, data }) {
+export default function BusinessCard({ businessTitle, backgroundPicture, data, curr }) {
   const titleStyles = {
     fontSize: "1.5rem",
   }
-  const [showModal, setModal] = useState(false);
+  const [showModal, setModal] = useState(curr === data.id);
   const equalsHours = (hours1, hours2) => {
     let hours1_len_eq0 = hours1.length === 0
     let hours2_len_eq0 = hours2.length === 0
