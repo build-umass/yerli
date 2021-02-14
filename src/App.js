@@ -18,8 +18,8 @@ function App() {
       <header className="App-header">
         <Router>
           <Switch>
-            <Route path="/" exact component={Feed} />
-            <Route path="/map" exact component={Map} />
+            <Route path="/explore/:id?" component={Feed} />
+            <Route path="/map/:id?" component={Map} />
           </Switch>
         </Router>
       </header>
