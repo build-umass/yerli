@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
-import { BsHouseDoor, BsMap } from 'react-icons/bs'
+import { BsSearch, BsGrid, BsMap } from 'react-icons/bs'
 
 export default function NavbarComponent() {
     return (
@@ -25,10 +25,18 @@ export default function NavbarComponent() {
                 </Form>
                 <Nav className="ml-auto">
                     <div>
+                        <Nav.Link href="/feed">
+                            <div className="Nav-Button">
+                                <BsGrid size="35" color="#1c8d66" />
+                                <p>Feed</p>
+                            </div>
+                        </Nav.Link>
+                    </div>
+                    <div>
                         <Nav.Link href="/explore">
                             <div className="Nav-Button">
-                                <BsHouseDoor size="35" color="#1c8d66" />
-                                <p>Feed</p>
+                                <BsSearch size="35" color="#1c8d66" />
+                                <p>Explore</p>
                             </div>
                         </Nav.Link>
                     </div>

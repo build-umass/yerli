@@ -1,5 +1,6 @@
 import React from 'react';
-import Feed from './components/feed/Feed.js'
+import Feed from './components/Feed.js'
+import Explore from './components/explore/Explore.js'
 import Navbar from './components/Navbar.js'
 import Socials from './components/Socials.js'
 import Map from './components/Map'
@@ -18,7 +19,8 @@ function App() {
       <header className="App-header">
         <Router>
           <Switch>
-            <Route path="/explore/:id?" component={Feed} />
+            <Route path="/feed" component={Feed} />
+            <Route path="/explore/:id?" component={Explore} />
             <Route path="/map/:id?" component={Map} />
           </Switch>
         </Router>
