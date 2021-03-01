@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import BusinessCard from './BusinessCard.js'
-import './feed.css'
+import './explore.css'
 
 export default function Slider({businessArr, businessCategory, businessDescrip, currId}) {
     let [businesses, setBusinesses] = useState(businessArr);

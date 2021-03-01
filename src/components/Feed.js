@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import './explore/feed.css';
+import './explore/explore.css';
 import mapboxgl from 'mapbox-gl';
 import { API, graphqlOperation } from 'aws-amplify';
 import { transformPhoneNumber, transformHoursOfOper } from './ModalHelper.js'
