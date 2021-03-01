@@ -175,10 +175,10 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data, c
                   <BsGeoAlt size={20} color='black' />
                   {data.address}
                 </div>
-                <div className="text-dark modal-text">
+                {/* <div className="text-dark modal-text">
                   <BiFoodMenu size={20} color='black' />
                   <a href='#'>Menu pdf/link</a>
-                </div>
+                </div> */}
               </Col>
             </Row>
             <Row>
