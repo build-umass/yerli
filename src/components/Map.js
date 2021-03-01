@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
+import queryString from 'query-string';
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -79,7 +80,8 @@ export default class Map extends React.Component {
         el.style.width = '35px';
         el.style.height = '50px';
 
-        const id = this.props.match.params.id;
+        const routeId = this.props.match.params.id
+        const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
         if(!this.state.paramSet && id !== undefined && id === marker.id){
           this.setState({ paramSet: true, modalOpen: true, currentMarker: marker})
         }    

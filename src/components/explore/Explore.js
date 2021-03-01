@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from './Slider'
 import { API, graphqlOperation } from 'aws-amplify';
+import queryString from 'query-string';
 
 export default class Feed extends React.Component {
     constructor(props) {
@@ -59,6 +60,8 @@ export default class Feed extends React.Component {
             }
         ];
         const { error, isLoaded, items } = this.state;
+        const routeId = this.props.match.params.id
+        const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
         let key = 0;
         if (error) {
             return <div>Error:</div>;
@@ -73,7 +76,7 @@ export default class Feed extends React.Component {
                                 businessArr={curr.places}
                                 businessCategory={curr.title}
                                 businessDescrip={curr.subtitle}
-                                currId={this.props.match.params.id}
+                                currId={id}
                                 key={key++}
                             />
                         ))
