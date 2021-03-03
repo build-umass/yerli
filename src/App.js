@@ -25,7 +25,6 @@ function App() {
           </Switch>
         </Router>
       </header>
-      <Socials />
     </div>
   );
 }

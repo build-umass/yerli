@@ -2,13 +2,20 @@ import React from 'react';
 import Slider from './Slider'
 import { API, graphqlOperation } from 'aws-amplify';
 import queryString from 'query-string';
+import mapboxgl from 'mapbox-gl';
+import '../../App.css';
+import Card from 'react-bootstrap/Card'
 
 export default class Feed extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            lat: 42.3732,
+            lng: -72.5199,
+            zoom: 13,
             error: null,
             isLoaded: false,
+            currentMarker: null,
             items: []
         }
     }
@@ -21,6 +28,8 @@ export default class Feed extends React.Component {
                 id
                 name
                 flags
+                lon
+                lat
                 business_bio
                 owner_bio
                 hours_of_oper
@@ -44,6 +53,15 @@ export default class Feed extends React.Component {
                 error => {
                     this.setState({ isLoaded: true, error })
                 })
+        console.log(this.mapContainer)
+        const map = new mapboxgl.Map({
+            container: this.mapContainer,
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [this.state.lng, this.state.lat],
+            zoom: this.state.zoom
+        });
+
+        this.setState({ map })
     }
 
     render() {
@@ -51,7 +69,7 @@ export default class Feed extends React.Component {
             {
                 title: "Nearby",
                 subtitle: "Businesses near you",
-                places: this.state.items.filter(business => business.flags === null|| business.flags === "")
+                places: this.state.items.filter(business => business.flags === null || business.flags === "")
             },
             {
                 title: "Support Your Community",
@@ -63,13 +81,39 @@ export default class Feed extends React.Component {
         const routeId = this.props.match.params.id
         const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
         let key = 0;
-        if (error) {
-            return <div>Error:</div>;
-        } else if (!isLoaded) {
-            return <div>Loading...</div>;
-        } else {
-            return (
-                <>
+        if (isLoaded) {
+            this.state.items.forEach(marker => { //Create map markers
+                const el = document.createElement('div');
+                el.className = 'marker';
+                el.style.backgroundImage = 'url(' + marker.photos[1] + ')';
+                el.style.backgroundSize = 'cover'
+                el.style.width = '35px';
+                el.style.height = '50px';
+
+                el.addEventListener('click', () => {
+                    this.setState({
+                        modalOpen: true,
+                        currentMarker: marker
+                    })
+                })
+
+                new mapboxgl.Marker(el)
+                    .setLngLat([marker.lon, marker.lat])
+                    .addTo(this.state.map);
+            });
+        }
+        return (
+            <div className = "body">
+                <Card className = 'searchCard'>
+                    
+                </Card>
+                <Card className = 'filterCard'>
+                    
+                </Card>
+                <Card className = 'mapCard'>
+                    <div ref={el => this.mapContainer = el} className="mapContainer" />
+                </Card>
+                {isLoaded ? <Card className = 'businessCard'>
                     {
                         sliders.map(curr => (
                             <Slider
@@ -81,8 +125,8 @@ export default class Feed extends React.Component {
                             />
                         ))
                     }
-                </>
-            )
-        }
+                </Card> : null}
+            </div>
+        )
     }
 }

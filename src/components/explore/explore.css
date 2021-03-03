@@ -1,3 +1,78 @@
+.body {
+    width: 940px;
+    display: 'flex';
+    align-items: center;
+}
+
+.searchCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 88px;
+    left: 0%;
+    right: 0%;
+    top: 28px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.filterCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 164px;
+    left: 0%;
+    right: 0%;
+    top: 40px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.mapCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 339px;
+    left: 0%;
+    right: 0%;
+    top: 55px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.mapContainer {
+    width: 894px;
+    height: 295px
+}
+
+.businessCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 792px;
+    left: 0%;
+    right: 0%;
+    top: 70px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
 /* CARD STYLES */
 .main-card {
     width: 12rem;
@@ -38,6 +113,7 @@ MODAL STYLES */
 
 .titles {
     text-align: left;
+    color: black;
 }
 
 .titles h3, h6 {
