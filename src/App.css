@@ -63,11 +63,6 @@
   padding-left: 132px;
 }
 
-.Search {
-  padding-left: 10%;
-}
-
-.Search-Bar {
-  border-radius: 40px;
-  /* border-style: dotted; */
+.activeNav {
+  color: #30C692
 }

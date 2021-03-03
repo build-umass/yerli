@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container'
 import Image from 'react-bootstrap/Image'
 import Modal from 'react-bootstrap/Modal'
 import { AiFillPhone, AiOutlineGlobal, AiOutlineClockCircle } from 'react-icons/ai';
-import { BiFoodMenu } from 'react-icons/bi';
 import { BsGeoAlt } from 'react-icons/bs';
 
 export default function BusinessCard({ businessTitle, backgroundPicture, data, curr }) {
@@ -165,7 +164,7 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data, c
                 </div>
                 <div className="text-dark modal-text">
                   <AiOutlineGlobal size={20} color='black' />
-                  <a href={data.website} target='_blank'>{data.website}</a>
+                  <a href={data.website} target='_blank' rel="noopener noreferrer">{data.website}</a>
                 </div>
                 <div className="text-dark modal-text">
                   <AiOutlineClockCircle size={20} color='black' />

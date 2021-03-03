@@ -4,7 +4,11 @@ import { API, graphqlOperation } from 'aws-amplify';
 import queryString from 'query-string';
 import mapboxgl from 'mapbox-gl';
 import '../../App.css';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import { BsSearch } from 'react-icons/bs'
 
 export default class Feed extends React.Component {
     constructor(props) {
@@ -16,7 +20,8 @@ export default class Feed extends React.Component {
             error: null,
             isLoaded: false,
             currentMarker: null,
-            items: []
+            items: [],
+            searchVal: null
         }
     }
 
@@ -53,7 +58,6 @@ export default class Feed extends React.Component {
                 error => {
                     this.setState({ isLoaded: true, error })
                 })
-        console.log(this.mapContainer)
         const map = new mapboxgl.Map({
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v11',
@@ -77,7 +81,7 @@ export default class Feed extends React.Component {
                 places: this.state.items.filter(business => business.flags !== null && business.flags !== "")
             }
         ];
-        const { error, isLoaded, items } = this.state;
+        const { isLoaded } = this.state;
         const routeId = this.props.match.params.id
         const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
         let key = 0;
@@ -103,17 +107,26 @@ export default class Feed extends React.Component {
             });
         }
         return (
-            <div className = "body">
-                <Card className = 'searchCard'>
-                    
+            <div className="body">
+                <Card className='searchCard'>
+                    <Form inline>
+                        <InputGroup>
+                            <InputGroup.Prepend>
+                                <InputGroup.Text style={{backgroundColor: 'white', paddingRight: 0, borderTopLeftRadius: 20, borderBottomLeftRadius: 20}}>
+                                    <BsSearch size="15" color="#888" />
+                                </InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl type="text" placeholder="Search for a business near you" className="mr-sm-2" style={{borderLeft: 'none', width: 845, borderTopRightRadius: 20, borderBottomRightRadius: 20}} />
+                        </InputGroup>
+                    </Form>
                 </Card>
-                <Card className = 'filterCard'>
-                    
+                <Card className='filterCard'>
+
                 </Card>
-                <Card className = 'mapCard'>
+                <Card className='mapCard'>
                     <div ref={el => this.mapContainer = el} className="mapContainer" />
                 </Card>
-                {isLoaded ? <Card className = 'businessCard'>
+                {isLoaded ? <Card className='businessCard'>
                     {
                         sliders.map(curr => (
                             <Slider

@@ -6,7 +6,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { transformPhoneNumber, transformHoursOfOper } from './ModalHelper.js'
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPhone, AiOutlineGlobal, AiOutlineClockCircle } from 'react-icons/ai';
-import { BiFoodMenu } from 'react-icons/bi';
 import { BsGeoAlt } from 'react-icons/bs';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -128,7 +127,7 @@ export default class Map extends React.Component {
                 </div>
                 <div className="text-dark modal-text">
                   <AiOutlineGlobal size={20} color='black' />
-                  <a href={this.state.currentMarker.website} target='_blank'>{this.state.currentMarker.website}</a>
+                  <a href={this.state.currentMarker.website} target='_blank' rel="noopener noreferrer">{this.state.currentMarker.website}</a>
                 </div>
                 <div className="text-dark modal-text">
                   <AiOutlineClockCircle size={20} color='black' />
@@ -137,10 +136,6 @@ export default class Map extends React.Component {
                 <div className="text-dark modal-text">
                   <BsGeoAlt size={20} color='black' />
                   {this.state.currentMarker.address}
-                </div>
-                <div className="text-dark modal-text">
-                  <BiFoodMenu size={20} color='black' />
-                  <a href='#'>Menu pdf/link</a>
                 </div>
               </Col>
             </Row>
