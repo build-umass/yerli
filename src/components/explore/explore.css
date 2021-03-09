@@ -17,7 +17,6 @@
     top: 28px;
 
     background: #FFFFFF;
-    border-radius: 12px;
 }
 
 .filterCard {
@@ -33,7 +32,26 @@
     top: 40px;
 
     background: #FFFFFF;
-    border-radius: 12px;
+}
+
+.iconSubText {
+    color: #000;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    padding-top: 10px;
+}
+
+.filterButton {
+    margin-top: 20px;
+    border-color: #30C692;
+    background-color: white;
+    color: #30C692;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 16px;
 }
 
 .mapCard {
@@ -49,7 +67,6 @@
     top: 55px;
 
     background: #FFFFFF;
-    border-radius: 12px;
 }
 
 .mapContainer {
@@ -75,14 +92,22 @@
 
 /* CARD STYLES */
 .main-card {
-    width: 12rem;
-    height: 10rem;
+    width: 209px;
+    height: 144px;
     margin: 0 0.35rem;
     background-size: cover;
 }
 
 .business-title {
-    font-size: 1.5rem;
+    font-size: 12px;
+    position: absolute;
+    left: 5%;
+    right: 60%;
+    top: 60%;
+    bottom: 20%;
+    font-weight: bold;
+    width: 75%;
+    text-align: left;
 }
 
 MODAL STYLES */
@@ -92,14 +117,19 @@ MODAL STYLES */
 }
 
 /* SLIDER STYLES */
-.nextSlide {
-    width: 2rem;
-    height: 2rem;
-    background-color: #FFFFFF;
-    border-radius: 100%;
-    border: .15rem solid #d1d1d1;
+.prevSlide {
+    width: 21px;
+    height: 21px;
     cursor: pointer;
     transition: .25s;
+    margin-left: 70px;
+}
+.nextSlide {
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    transition: .25s;
+    margin-left: -25px;
 }
 
 .nextSlide:hover {
@@ -107,12 +137,13 @@ MODAL STYLES */
 }
 
 .slider-wrapper{
-    margin: 1rem 0 0 0;
+    transition: .25s;
     display: flex;
 }
 
 .titles {
     text-align: left;
+    margin-bottom: 10px;
     color: black;
 }
 
@@ -140,3 +171,21 @@ MODAL STYLES */
 .modalMainBody {
     margin-bottom: 10px;
 }
+
+.example-enter {
+    opacity: 0.01;
+  }
+  
+  .example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .example-leave {
+    opacity: 1;
+  }
+  
+  .example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }

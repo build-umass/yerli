@@ -5,6 +5,10 @@ import queryString from 'query-string';
 import mapboxgl from 'mapbox-gl';
 import '../../App.css';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Image from 'react-bootstrap/Image'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
@@ -121,7 +125,66 @@ export default class Feed extends React.Component {
                     </Form>
                 </Card>
                 <Card className='filterCard'>
-
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Image src={require('../../images/vector/Food.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Restaurants
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Trimmer.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Barbershops
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Hair Dryer.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Salons
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Cookie.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Bakeries
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Beer.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Bars
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Farm House.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Farms
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Cart.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Groceries
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <button className="filterButton">Female Owned</button>
+                            </Col>
+                            <Col>
+                                <button className="filterButton">Minority Owned</button>
+                            </Col>
+                            <Col>
+                                <button className="filterButton">Non-profit</button>
+                            </Col>
+                            <Col>
+                                <button className="filterButton">Over 4.5 ★</button>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Card>
                 <Card className='mapCard'>
                     <div ref={el => this.mapContainer = el} className="mapContainer" />

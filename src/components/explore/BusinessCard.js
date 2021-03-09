@@ -9,9 +9,6 @@ import { AiFillPhone, AiOutlineGlobal, AiOutlineClockCircle } from 'react-icons/
 import { BsGeoAlt } from 'react-icons/bs';
 
 export default function BusinessCard({ businessTitle, backgroundPicture, data, curr }) {
-  const titleStyles = {
-    fontSize: "1.5rem",
-  }
   const [showModal, setModal] = useState(curr === data.id);
   const equalsHours = (hours1, hours2) => {
     let hours1_len_eq0 = hours1.length === 0
@@ -131,7 +128,7 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data, c
       <div onClick={() => setModal(true)}>
         <Card className="main-card" bg={'dark'} style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('${backgroundPicture}')` }}>
           <Card.Body>
-            <Card.Title style={titleStyles} className="business-title">{businessTitle}</Card.Title>
+            <Card.Title className="business-title">{businessTitle}</Card.Title>
           </Card.Body>
         </Card>
       </div>
