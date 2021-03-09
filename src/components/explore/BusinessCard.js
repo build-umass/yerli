@@ -137,18 +137,20 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data, c
         </Modal.Header>
         <Modal.Body>
           <Container>
+          <Row>
+              <Col>
+                <Image  className="bottomImage" src={data.photos[2]} ></Image>
+              </Col>
+            </Row>
             <Row>
-              <Col md={6} className="text-left">
-                <h3 className="text-dark modal-text">{data.name}</h3>
+              <Col md={12} className="text-center">
+                <h3 className="text-dark modal-title">{data.name}</h3>
               </Col>
             </Row>
             <Row>
               <Col className="text-left">
-                <h5 className="text-dark modal-text">About {data.name} • $$$</h5>
+                <h5 className="text-dark modal-title">About</h5>
               </Col>
-              {/* {data.flags.length > 0 ? <Col className="text-left">
-                <h5 className="text-dark modal-text">{data.flags[0]}</h5>
-              </Col> : <></>} */}
             </Row>
             <Row className="modalMainBody">
               <Col md={6} className="text-left">
@@ -156,30 +158,26 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data, c
               </Col>
               <Col md={6} className="text-left">
                 <div className="text-dark modal-text">
-                  <AiFillPhone size={20} color='black' />
-                  <a href={'tel:' + data.phone_num}>{transformPhoneNumber(data.phone_num)}</a>
+                  <AiFillPhone size={20} color='black' style={{marginRight: '5px'}}/>
+                  <a href={'tel:' + data.phone_num} style={{color: 'black'}}>{transformPhoneNumber(data.phone_num)}</a>
                 </div>
                 <div className="text-dark modal-text">
-                  <AiOutlineGlobal size={20} color='black' />
-                  <a href={data.website} target='_blank' rel="noopener noreferrer">{data.website}</a>
+                  <AiOutlineGlobal size={20} color='black' style={{marginRight: '6px'}}/>
+                  <a href={data.website} target='_blank' rel="noopener noreferrer" style={{color: 'black'}}>{data.website}</a>
                 </div>
                 <div className="text-dark modal-text">
-                  <AiOutlineClockCircle size={20} color='black' />
+                  <AiOutlineClockCircle size={20} color='black' style={{marginRight: '1px'}}/>
                   {transformHoursOfOper(data.hours_of_oper)}
                 </div>
                 <div className="text-dark modal-text">
-                  <BsGeoAlt size={20} color='black' />
+                  <BsGeoAlt size={20} color='black' style={{marginRight: '5px'}} />
                   {data.address}
                 </div>
-                {/* <div className="text-dark modal-text">
-                  <BiFoodMenu size={20} color='black' />
-                  <a href='#'>Menu pdf/link</a>
-                </div> */}
               </Col>
             </Row>
             <Row>
               <Col className="text-left">
-                <h5 className='text-dark'>
+                <h5 className='text-dark modal-title'>
                   Best Sellers:
                                   </h5>
                 <div className='text-dark'>
@@ -193,15 +191,10 @@ export default function BusinessCard({ businessTitle, backgroundPicture, data, c
                 </div>
               </Col>
               <Col className="text-left">
-                <h5 className='text-dark'>
+                <h5 className='text-dark modal-title'>
                   A word from the owner:
-                                  </h5>
+                </h5>
                 <div className='text-dark'>{data.owner_bio}</div>
-              </Col>
-            </Row>
-            <Row className="bottomImages">
-              <Col>
-                <Image src={data.photos[2]} width={'100%'}></Image>
               </Col>
             </Row>
           </Container>

@@ -132,10 +132,6 @@ MODAL STYLES */
     margin-left: -25px;
 }
 
-.nextSlide:hover {
-    background-color: #d1d1d1;
-}
-
 .slider-wrapper{
     transition: .25s;
     display: flex;
@@ -160,12 +156,25 @@ MODAL STYLES */
     margin: .5rem 0;
 }
 
-.bottomImages {
-    margin-top: 20px;
+.bottomImage {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.modal-title{
+    margin-top: 15px;
+    height: 20px;
+    font-weight: bold;
 }
 
 .modal-text {
     padding: 2px 0px;
+}
+
+.modal-text a:link {
+    text-decoration: underline;
 }
 
 .modalMainBody {
