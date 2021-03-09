@@ -6,24 +6,20 @@ import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 
 export default function Slider({ businessArr, businessCategory, businessDescrip, currId }) {
-    let businesses = useState(businessArr)[0];
     const [indices, setIndices] = useState({ start: 0, finish: 4 })
-
     const computeArr = () => {
-        let copy = [...businesses]
         if (indices.start < indices.finish) {
-            return copy.slice(indices.start, indices.finish)
+            return businessArr.slice(indices.start, indices.finish)
         }
         else {
-            let start = copy.slice(indices.start, businesses.length);
-            let finish = copy.slice(0, indices.finish);
+            let start = businessArr.slice(indices.start, businessArr.length);
+            let finish = businessArr.slice(0, indices.finish);
             return [...start, ...finish]
         }
     }
-
     const updateIndicesPrev = () => {
         const handleBounds = (val) => {
-            return val < 0 ? val + businesses.length : val;
+            return val < 0 ? val + businessArr.length : val;
         }
 
         let nextA = handleBounds(indices.start - 1);
@@ -34,7 +30,7 @@ export default function Slider({ businessArr, businessCategory, businessDescrip,
 
     const updateIndicesNext = () => {
         const handleBounds = (val) => {
-            return val >= businesses.length ? val - businesses.length : val;
+            return val >= businessArr.length ? val - businessArr.length : val;
         }
 
         let nextA = handleBounds(indices.start + 1);
@@ -48,23 +44,27 @@ export default function Slider({ businessArr, businessCategory, businessDescrip,
             <div className="titles">
                 <Row>
                     <Col lg={10}>
-                        <h3>{businessCategory}</h3>
+                        <h3 className="businessCategory">{businessCategory}</h3>
                     </Col>
                     <Col>
-                        <div className="prevSlide"
-                            onClick={() => {
-                                updateIndicesPrev();
-                            }}>
-                            <Image src={require('../../images/vector/arrowleft.png')} />
-                        </div>
+                        {businessArr.length > 4 ?
+                            <div className="prevSlide"
+                                onClick={() => {
+                                    updateIndicesPrev();
+                                }}>
+                                <Image src={require('../../images/vector/arrowleft.png')} />
+                            </div> : null}
                     </Col>
                     <Col>
+                        {businessArr.length > 4 ?
                         <div className="nextSlide"
                             onClick={() => {
-                                updateIndicesNext();
+                                if (businessArr.length > 4) {
+                                    updateIndicesNext();
+                                }
                             }}>
                             <Image src={require('../../images/vector/arrowright.png')} />
-                        </div>
+                        </div> : null}
                     </Col>
                 </Row>
 
@@ -72,8 +72,8 @@ export default function Slider({ businessArr, businessCategory, businessDescrip,
 
             </div>
             <div className="slider-wrapper">
-                {computeArr(businesses).map((curr) => (
-                    <div key={curr.id}><BusinessCard businessTitle={curr.name} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)} curr={currId}/></div>
+                {computeArr(businessArr).map((curr) => (
+                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)} curr={currId} />
                 ))}
             </div>
         </div>

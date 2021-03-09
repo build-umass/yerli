@@ -73,6 +73,13 @@ export default class Feed extends React.Component {
     }
 
     render() {
+        let searchSlider;
+        if(this.state.searchVal){
+            searchSlider = {
+                title: "Businesses matching '" + this.state.searchVal + "'",
+                places: this.state.items.filter(business => business.name.toLowerCase().search(this.state.searchVal.toLowerCase()) !== -1)
+            }
+        }
         let sliders = [
             {
                 title: "Nearby",
@@ -85,7 +92,7 @@ export default class Feed extends React.Component {
                 places: this.state.items.filter(business => business.flags !== null && business.flags !== "")
             }
         ];
-        const { isLoaded } = this.state;
+        const { isLoaded, searchVal } = this.state;
         const routeId = this.props.match.params.id
         const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
         let key = 0;
@@ -120,7 +127,7 @@ export default class Feed extends React.Component {
                                     <BsSearch size="15" color="#888" />
                                 </InputGroup.Text>
                             </InputGroup.Prepend>
-                            <FormControl type="text" placeholder="Search for a business near you" className="mr-sm-2" style={{borderLeft: 'none', width: 845, borderTopRightRadius: 20, borderBottomRightRadius: 20}} />
+                            <FormControl onChange={event => this.setState({searchVal: event.target.value})} type="text" placeholder="Search for a business near you" className="mr-sm-2" style={{borderLeft: 'none', width: 845, borderTopRightRadius: 20, borderBottomRightRadius: 20}} />
                         </InputGroup>
                     </Form>
                 </Card>
@@ -189,6 +196,15 @@ export default class Feed extends React.Component {
                 <Card className='mapCard'>
                     <div ref={el => this.mapContainer = el} className="mapContainer" />
                 </Card>
+                {searchVal ? 
+                <Card className='searchResultCard'>
+                    <Slider
+                        businessArr={searchSlider.places}
+                        businessCategory={searchSlider.title}
+                        businessDescrip={'test'}
+                        currId={id}
+                    />
+                </Card> : null}
                 {isLoaded ? <Card className='businessCard'>
                     {
                         sliders.map(curr => (

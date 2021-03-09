@@ -69,6 +69,21 @@
     background: #FFFFFF;
 }
 
+.searchResultCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 250px;
+    left: 0%;
+    right: 0%;
+    top: 63px;
+
+    background: #FFFFFF;
+}
+
 .mapContainer {
     width: 894px;
     height: 295px
@@ -96,6 +111,10 @@
     height: 144px;
     margin: 0 0.35rem;
     background-size: cover;
+}
+
+.businessCategory {
+    width: 800px;
 }
 
 .business-title {
