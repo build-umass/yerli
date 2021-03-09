@@ -25,6 +25,7 @@ export default class Feed extends React.Component {
             isLoaded: false,
             currentMarker: null,
             items: [],
+            markers: [],
             searchVal: null
         }
     }
@@ -97,7 +98,14 @@ export default class Feed extends React.Component {
         const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
         let key = 0;
         if (isLoaded) {
-            this.state.items.forEach(marker => { //Create map markers
+            let mapItems = this.state.items;
+            if(this.state.searchVal){
+                for(const marker of this.state.markers){
+                    marker.remove();
+                }
+                mapItems = this.state.items.filter(business => business.name.toLowerCase().search(this.state.searchVal.toLowerCase()) !== -1);
+            }
+            mapItems.forEach(marker => { //Create map markers
                 const el = document.createElement('div');
                 el.className = 'marker';
                 el.style.backgroundImage = 'url(' + marker.photos[1] + ')';
@@ -112,9 +120,9 @@ export default class Feed extends React.Component {
                     })
                 })
 
-                new mapboxgl.Marker(el)
+                this.state.markers.push(new mapboxgl.Marker(el)
                     .setLngLat([marker.lon, marker.lat])
-                    .addTo(this.state.map);
+                    .addTo(this.state.map));
             });
         }
         return (
