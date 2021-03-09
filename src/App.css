@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #E5E5E5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,32 +44,25 @@
   
 }
 
+.Nav-Text {
+  color: white;
+  padding-top: 32px;
+  margin-right: 70px;
+}
+
 .Nav-Button-Text {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .Logo {
   font-family: 'Oleo Script Swash Caps', cursive;
-  color: #30c591;
-  font-size: 500%;
+  color: white;
+  font-size: 250%;
   margin-bottom: -12%;
   margin-top: -10%;
-  padding-left: 15%;
+  padding-left: 132px;
 }
 
-.Search {
-  padding-left: 10%;
-}
-
-.Search-Bar {
-  border-radius: 40px;
-  /* border-style: dotted; */
-}
-
-.mapContainer {
-position: absolute;
-top: 8rem;
-right: 0;
-left: 0;
-bottom: 0;
+.activeNav {
+  color: #30C692
 }

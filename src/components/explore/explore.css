@@ -1,0 +1,219 @@
+.body {
+    width: 940px;
+    display: 'flex';
+    align-items: center;
+}
+
+.searchCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 88px;
+    left: 0%;
+    right: 0%;
+    top: 28px;
+
+    background: #FFFFFF;
+}
+
+.filterCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 164px;
+    left: 0%;
+    right: 0%;
+    top: 40px;
+
+    background: #FFFFFF;
+}
+
+.iconSubText {
+    color: #000;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    padding-top: 10px;
+}
+
+.filterButton {
+    margin-top: 20px;
+    border-color: #30C692;
+    background-color: white;
+    color: #30C692;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.mapCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 339px;
+    left: 0%;
+    right: 0%;
+    top: 55px;
+
+    background: #FFFFFF;
+}
+
+.searchResultCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 250px;
+    left: 0%;
+    right: 0%;
+    top: 63px;
+
+    background: #FFFFFF;
+}
+
+.mapContainer {
+    width: 894px;
+    height: 295px
+}
+
+.businessCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 28px;
+
+    position: static;
+    height: 792px;
+    left: 0%;
+    right: 0%;
+    top: 70px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+/* CARD STYLES */
+.main-card {
+    width: 209px;
+    height: 144px;
+    margin: 0 0.35rem;
+    background-size: cover;
+}
+
+.businessCategory {
+    width: 800px;
+}
+
+.business-title {
+    font-size: 12px;
+    position: absolute;
+    left: 5%;
+    right: 60%;
+    top: 60%;
+    bottom: 20%;
+    font-weight: bold;
+    width: 75%;
+    text-align: left;
+}
+
+MODAL STYLES */
+.modal-card {
+    width: 35rem;
+    font-size: 0.8rem;
+}
+
+/* SLIDER STYLES */
+.prevSlide {
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    transition: .25s;
+    margin-left: 70px;
+}
+.nextSlide {
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    transition: .25s;
+    margin-left: -25px;
+}
+
+.slider-wrapper{
+    transition: .25s;
+    display: flex;
+}
+
+.titles {
+    text-align: left;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.titles h3, h6 {
+    margin-bottom: 0;
+    margin-left: .55rem;
+}
+
+.titles h6 {
+    font-weight: 400;
+}
+
+.wrap {
+    margin: .5rem 0;
+}
+
+.bottomImage {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.modal-title{
+    margin-top: 15px;
+    height: 20px;
+    font-weight: bold;
+}
+
+.modal-text {
+    padding: 2px 0px;
+}
+
+.modal-text a:link {
+    text-decoration: underline;
+}
+
+.modalMainBody {
+    margin-bottom: 10px;
+}
+
+.example-enter {
+    opacity: 0.01;
+  }
+  
+  .example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .example-leave {
+    opacity: 1;
+  }
+  
+  .example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }
