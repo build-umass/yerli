@@ -48,6 +48,10 @@
   color: white;
   padding-top: 32px;
   margin-right: 70px;
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .Nav-Button-Text {

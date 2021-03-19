@@ -139,71 +139,6 @@ export default class Feed extends React.Component {
                         </InputGroup>
                     </Form>
                 </Card>
-                <Card className='filterCard'>
-                    <Container>
-                        <Row>
-                            <Col>
-                                <Image src={require('../../images/vector/Food.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Restaurants
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Trimmer.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Barbershops
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Hair Dryer.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Salons
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Cookie.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Bakeries
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Beer.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Bars
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Farm House.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Farms
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Cart.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Groceries
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <button className="filterButton">Female Owned</button>
-                            </Col>
-                            <Col>
-                                <button className="filterButton">Minority Owned</button>
-                            </Col>
-                            <Col>
-                                <button className="filterButton">Non-profit</button>
-                            </Col>
-                            <Col>
-                                <button className="filterButton">Over 4.5 ★</button>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Card>
-                <Card className='mapCard'>
-                    <div ref={el => this.mapContainer = el} className="mapContainer" />
-                </Card>
                 {searchVal ? 
                 <Card className='searchResultCard'>
                     <Slider
@@ -213,6 +148,59 @@ export default class Feed extends React.Component {
                         currId={id}
                     />
                 </Card> : null}
+                <Card className='filterCard'>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Image src={require('../../images/vector/Food.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Food/Restaurants
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Yoga.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Health/Beauty/Fitness
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Briefcase.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Business Services
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Store.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Retail
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Nature.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Environment
+                                </div>
+                            </Col>
+                            <Col>
+                                <Image src={require('../../images/vector/Plane.png')} width={40} height ={40}/>
+                                <div className='iconSubText'>
+                                    Travel Logistics
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <div style={{textAlign: 'left'}}>
+                                <button className="filterButton">Female Owned</button>
+                                <button className="filterButton">Minority Owned</button>
+                                <button className="filterButton">Non-profit</button>
+                                <button className="filterButton">Over 4.5 ★<Image src={require('../../images/vector/chevron-down.png')} width={16} height ={8}/></button>
+                            </div>
+                        </Row>
+                    </Container>
+                </Card>
+                <Card className='mapCard'>
+                    <div ref={el => this.mapContainer = el} className="mapContainer" />
+                </Card>
                 {isLoaded ? <Card className='businessCard'>
                     {
                         sliders.map(curr => (

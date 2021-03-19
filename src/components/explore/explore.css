@@ -10,6 +10,11 @@
     align-items: flex-start;
     padding: 22px 28px;
 
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+
     position: static;
     height: 88px;
     left: 0%;
@@ -31,16 +36,18 @@
     right: 0%;
     top: 40px;
 
+    font-family: 'Jost', sans-serif;
+
     background: #FFFFFF;
 }
 
 .iconSubText {
-    color: #000;
     font-style: normal;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 100%;
     padding-top: 10px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .filterButton {
@@ -50,7 +57,12 @@
     color: #30C692;
     border: 1px solid;
     border-radius: 30px;
-    padding: 5px 10px;
+    padding: 5px 15px;
+    margin: 0px 8px;
+
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 16px;
 }
 
@@ -115,6 +127,9 @@
 
 .businessCategory {
     width: 800px;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: bold;
 }
 
 .business-title {
@@ -124,9 +139,12 @@
     right: 60%;
     top: 60%;
     bottom: 20%;
-    font-weight: bold;
     width: 75%;
     text-align: left;
+
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: bold;
 }
 
 MODAL STYLES */
