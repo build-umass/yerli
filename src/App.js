@@ -5,7 +5,8 @@ import Navbar from './components/Navbar.js'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,9 +17,10 @@ function App() {
       <Navbar />
       <header className="App-header">
         <Router>
-          <Switch>
+          <Switch>        
             <Route path="/feed" component={Feed} />
             <Route path="/explore/:id?" component={Explore} />
+            <Redirect from='/' to='/feed'/>
           </Switch>
         </Router>
       </header>

@@ -13,6 +13,9 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { BsSearch } from 'react-icons/bs'
+import { BsGeoAlt } from 'react-icons/bs'
+import { GiHouse } from 'react-icons/gi'
+import Nav from 'react-bootstrap/Nav'
 
 export default class Feed extends React.Component {
     constructor(props) {
@@ -96,6 +99,10 @@ export default class Feed extends React.Component {
         const { isLoaded, searchVal } = this.state;
         const routeId = this.props.match.params.id
         const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
+        const feedColor = window.location.href.includes('feed') ? '#30C692' : 'black';
+        const exploreColor = window.location.href.includes('explore') ? '#30C692' : 'black';
+        const feedBorder = window.location.href.includes('feed') ? '3px solid #30C692' : 'none';
+        const exploreBorder = window.location.href.includes('explore') ? '3px solid #30C692' : 'none';
         let key = 0;
         if (isLoaded) {
             let mapItems = this.state.items;
@@ -126,106 +133,118 @@ export default class Feed extends React.Component {
             });
         }
         return (
-            <div className="body">
-                <Card className='searchCard'>
-                    <Form inline>
-                        <InputGroup>
-                            <InputGroup.Prepend>
-                                <InputGroup.Text style={{backgroundColor: 'white', paddingRight: 0, borderTopLeftRadius: 20, borderBottomLeftRadius: 20}}>
-                                    <BsSearch size="15" color="#888" />
-                                </InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl onChange={event => this.setState({searchVal: event.target.value})} type="text" placeholder="Search for a business near you" className="mr-sm-2" style={{borderLeft: 'none', width: 845, borderTopRightRadius: 20, borderBottomRightRadius: 20}} />
-                        </InputGroup>
-                    </Form>
-                </Card>
-                <Card className='filterCard'>
-                    <Container>
-                        <Row>
-                            <Col>
-                                <Image src={require('../../images/vector/Food.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Restaurants
+            <div>
+                <div className='leftNav'>
+                    <div>
+                        <Nav.Link href="/feed">
+                            <div className="Nav-Button" style={{color: feedColor}}>
+                                <div style={{borderBottom: feedBorder}}>
+                                    <GiHouse size="25" color={feedColor} />
+                                    Feed
+                                </div>     
+                            </div>
+                        </Nav.Link>
+                    </div>
+                    <div>
+                        <Nav.Link href="/explore" style={{color: exploreColor}}>
+                            <div className="Nav-Button">
+                                <div style={{borderBottom: exploreBorder}}>
+                                    <BsGeoAlt size="25" color={exploreColor}/>
+                                    Explore
                                 </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Trimmer.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Barbershops
+                            </div>
+                        </Nav.Link>
+                    </div>
+                </div>
+                <div className="body">
+                    <Card className='searchCard'>
+                        <Form inline>
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text style={{backgroundColor: 'white', paddingRight: 0, borderTopLeftRadius: 20, borderBottomLeftRadius: 20}}>
+                                        <BsSearch size="15" color="#888" />
+                                    </InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <FormControl onChange={event => this.setState({searchVal: event.target.value})} type="text" placeholder="Search for a business near you" className="mr-sm-2" style={{borderLeft: 'none', width: 845, borderTopRightRadius: 20, borderBottomRightRadius: 20}} />
+                            </InputGroup>
+                        </Form>
+                    </Card>
+                    {searchVal ? 
+                    <Card className='searchResultCard'>
+                        <Slider
+                            businessArr={searchSlider.places}
+                            businessCategory={searchSlider.title}
+                            businessDescrip={'test'}
+                            currId={id}
+                        />
+                    </Card> : null}
+                    <Card className='filterCard'>
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <Image src={require('../../images/vector/Food.png')} width={40} height ={40}/>
+                                    <div className='iconSubText'>
+                                        Food/Restaurants
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <Image src={require('../../images/vector/Yoga.png')} width={40} height ={40}/>
+                                    <div className='iconSubText'>
+                                        Health/Beauty/Fitness
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <Image src={require('../../images/vector/Briefcase.png')} width={40} height ={40}/>
+                                    <div className='iconSubText'>
+                                        Business Services
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <Image src={require('../../images/vector/Store.png')} width={40} height ={40}/>
+                                    <div className='iconSubText'>
+                                        Retail
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <Image src={require('../../images/vector/Nature.png')} width={40} height ={40}/>
+                                    <div className='iconSubText'>
+                                        Environment
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <Image src={require('../../images/vector/Plane.png')} width={40} height ={40}/>
+                                    <div className='iconSubText'>
+                                        Travel Logistics
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <div style={{textAlign: 'left'}}>
+                                    <button className="filterButton">Female Owned</button>
+                                    <button className="filterButton">Minority Owned</button>
+                                    <button className="filterButton">Non-profit</button>
+                                    <button className="filterButton">Over 4.5 ★<Image src={require('../../images/vector/chevron-down.png')} width={16} height ={8}/></button>
                                 </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Hair Dryer.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Salons
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Cookie.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Bakeries
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Beer.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Bars
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Farm House.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Farms
-                                </div>
-                            </Col>
-                            <Col>
-                                <Image src={require('../../images/vector/Cart.png')} width={40} height ={40}/>
-                                <div className='iconSubText'>
-                                    Groceries
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <button className="filterButton">Female Owned</button>
-                            </Col>
-                            <Col>
-                                <button className="filterButton">Minority Owned</button>
-                            </Col>
-                            <Col>
-                                <button className="filterButton">Non-profit</button>
-                            </Col>
-                            <Col>
-                                <button className="filterButton">Over 4.5 ★</button>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Card>
-                <Card className='mapCard'>
-                    <div ref={el => this.mapContainer = el} className="mapContainer" />
-                </Card>
-                {searchVal ? 
-                <Card className='searchResultCard'>
-                    <Slider
-                        businessArr={searchSlider.places}
-                        businessCategory={searchSlider.title}
-                        businessDescrip={'test'}
-                        currId={id}
-                    />
-                </Card> : null}
-                {isLoaded ? <Card className='businessCard'>
-                    {
-                        sliders.map(curr => (
-                            <Slider
-                                businessArr={curr.places}
-                                businessCategory={curr.title}
-                                businessDescrip={curr.subtitle}
-                                currId={id}
-                                key={key++}
-                            />
-                        ))
-                    }
-                </Card> : null}
+                            </Row>
+                        </Container>
+                    </Card>
+                    <Card className='mapCard'>
+                        <div ref={el => this.mapContainer = el} className="mapContainer" />
+                    </Card>
+                    {isLoaded ? <Card className='businessCard'>
+                        {
+                            sliders.map(curr => (
+                                <Slider
+                                    businessArr={curr.places}
+                                    businessCategory={curr.title}
+                                    businessDescrip={curr.subtitle}
+                                    currId={id}
+                                    key={key++}
+                                />
+                            ))
+                        }
+                    </Card> : null}
+                </div>
             </div>
         )
     }

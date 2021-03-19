@@ -37,24 +37,6 @@ export default function NavbarComponent() {
                             </div>
                         </Nav.Link>
                     </div>
-                    <div>
-                        <Nav.Link href="/feed">
-                            <div className="Nav-Button">
-                                {/*color={window.location.href.includes('feed') ? '#30C692' : 'black'} */}
-                                <GiHouse size="35" color="black" />
-                                <p>Feed</p>
-                            </div>
-                        </Nav.Link>
-                    </div>
-                    <div>
-                        <Nav.Link href="/explore">
-                            <div className="Nav-Button">
-                                {/*color={window.location.href.includes('explore') ? '#30C692' : 'black'} */}
-                                <BsGeoAlt size="35" color='black'/>
-                                <p>Explore</p>
-                            </div>
-                        </Nav.Link>
-                    </div>
                 </Nav>
             </Navbar.Collapse>
         </Navbar >
