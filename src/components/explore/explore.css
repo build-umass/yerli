@@ -4,6 +4,19 @@
     align-items: center;
 }
 
+.leftNav {
+    position: absolute;
+    left: 4%;
+    top: 18%;
+
+    text-align: left;
+    color: black;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+}
+
 .searchCard {
     display: flex;
     flex-direction: column;
@@ -40,6 +53,10 @@
 
     background: #FFFFFF;
 }
+
+.Nav-Button {
+    margin-bottom: 12px;
+  }
 
 .iconSubText {
     font-style: normal;
