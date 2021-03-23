@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from './Slider'
 import { API, graphqlOperation } from 'aws-amplify';
-import queryString from 'query-string';
 import mapboxgl from 'mapbox-gl';
 import '../../App.css';
 import Card from 'react-bootstrap/Card';
@@ -43,16 +42,7 @@ export default class Feed extends React.Component {
                 flags
                 lon
                 lat
-                business_bio
-                owner_bio
-                hours_of_oper
-                phone_num
-                website
-                photo
                 photos
-                email
-                address
-                topProducts
             }
             }
         }
@@ -97,13 +87,8 @@ export default class Feed extends React.Component {
             }
         ];
         const { isLoaded, searchVal } = this.state;
-        const routeId = this.props.match.params.id
-        const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
-        const feedColor = window.location.href.includes('feed') ? '#30C692' : 'black';
-        const exploreColor = window.location.href.includes('explore') ? '#30C692' : 'black';
-        const feedBorder = window.location.href.includes('feed') ? '3px solid #30C692' : 'none';
-        const exploreBorder = window.location.href.includes('explore') ? '3px solid #30C692' : 'none';
         let key = 0;
+        
         if (isLoaded) {
             let mapItems = this.state.items;
             if(this.state.searchVal){
@@ -137,19 +122,19 @@ export default class Feed extends React.Component {
                 <div className='leftNav'>
                     <div>
                         <Nav.Link href="/feed">
-                            <div className="Nav-Button" style={{color: feedColor}}>
-                                <div style={{borderBottom: feedBorder}}>
-                                    <GiHouse size="25" color={feedColor} />
+                            <div className="Nav-Button" style={{color: 'black'}}>
+                                <div style={{borderBottom: 'none'}}>
+                                    <GiHouse size="25" color={'black'} />
                                     Feed
                                 </div>     
                             </div>
                         </Nav.Link>
                     </div>
                     <div>
-                        <Nav.Link href="/explore" style={{color: exploreColor}}>
+                        <Nav.Link href="/explore" style={{color: '#30C692'}}>
                             <div className="Nav-Button">
-                                <div style={{borderBottom: exploreBorder}}>
-                                    <BsGeoAlt size="25" color={exploreColor}/>
+                                <div style={{borderBottom: '3px solid #30C692'}}>
+                                    <BsGeoAlt size="25" color={'#30C692'}/>
                                     Explore
                                 </div>
                             </div>
@@ -174,8 +159,6 @@ export default class Feed extends React.Component {
                         <Slider
                             businessArr={searchSlider.places}
                             businessCategory={searchSlider.title}
-                            businessDescrip={'test'}
-                            currId={id}
                         />
                     </Card> : null}
                     <Card className='filterCard'>
@@ -237,8 +220,6 @@ export default class Feed extends React.Component {
                                 <Slider
                                     businessArr={curr.places}
                                     businessCategory={curr.title}
-                                    businessDescrip={curr.subtitle}
-                                    currId={id}
                                     key={key++}
                                 />
                             ))

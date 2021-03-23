@@ -1,8 +1,6 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import { BsGeoAlt } from 'react-icons/bs'
-import { GiHouse } from 'react-icons/gi'
 import '../App.css'
 
 export default function NavbarComponent() {

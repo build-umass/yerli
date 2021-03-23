@@ -123,9 +123,9 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 22px 28px;
+    margin-bottom: 100px;
 
     position: static;
-    height: 792px;
     left: 0%;
     right: 0%;
     top: 70px;
@@ -138,7 +138,6 @@
 .main-card {
     width: 209px;
     height: 144px;
-    margin: 0 0.35rem;
     background-size: cover;
 }
 
@@ -162,12 +161,41 @@
     font-family: 'Jost', sans-serif;
     font-style: normal;
     font-weight: bold;
+    color: white;
 }
 
-MODAL STYLES */
-.modal-card {
-    width: 35rem;
-    font-size: 0.8rem;
+
+.modalCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+
+    margin-top: 15px;
+    margin-bottom: 120px;
+
+    font-family: 'Jost', sans-serif;
+    
+    position: static;
+    height: 900px;
+    left: 0%;
+    right: 0%;
+    top: 0px;
+    
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.backText {
+    float: right;
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+}
+
+.backButton {
+    float: left;
+    margin-top: 7px;
+    margin-right: 10px;
 }
 
 /* SLIDER STYLES */
@@ -219,7 +247,7 @@ MODAL STYLES */
 
 .modal-title{
     margin-top: 15px;
-    height: 20px;
+    height: 30px;
     font-weight: bold;
 }
 
@@ -234,21 +262,3 @@ MODAL STYLES */
 .modalMainBody {
     margin-bottom: 10px;
 }
-
-.example-enter {
-    opacity: 0.01;
-  }
-  
-  .example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  
-  .example-leave {
-    opacity: 1;
-  }
-  
-  .example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }

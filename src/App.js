@@ -1,6 +1,8 @@
 import React from 'react';
 import Feed from './components/Feed.js'
 import Explore from './components/explore/Explore.js'
+import Business from './components/explore/Business.js'
+
 import Navbar from './components/Navbar.js'
 import {
   BrowserRouter as Router,
@@ -19,7 +21,8 @@ function App() {
         <Router>
           <Switch>        
             <Route path="/feed" component={Feed} />
-            <Route path="/explore/:id?" component={Explore} />
+            <Route exact path="/explore" component={Explore} />
+            <Route path="/explore/b/:id?" component={Business} />
             <Redirect from='/' to='/feed'/>
           </Switch>
         </Router>
