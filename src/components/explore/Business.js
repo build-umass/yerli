@@ -1,17 +1,14 @@
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import queryString from 'query-string';
 import '../../App.css';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
-import Nav from 'react-bootstrap/Nav';
 
 import { AiFillPhone, AiOutlineGlobal, AiOutlineClockCircle } from 'react-icons/ai';
 import { BsGeoAlt } from 'react-icons/bs';
-import { GiHouse } from 'react-icons/gi';
 
 import {transformPhoneNumber, transformHoursOfOper} from '../ModalHelper'
 import { Redirect } from 'react-router';
@@ -27,15 +24,9 @@ export default class Feed extends React.Component {
     }
 
     componentDidMount() {
-        const routeId = this.props.match.params.id
-        const id = routeId !== undefined ? routeId : queryString.parse(this.props.location.search).id;
-        if(id === undefined){
-            this.setState({isLoaded: true})
-            return;
-        }
         const ListItems = `
         query {
-            getLocalVersionProd(id:${id}) {
+            getLocalVersionProd(id:${this.props.id}) {
                 id
                 name
                 business_bio
@@ -70,28 +61,6 @@ export default class Feed extends React.Component {
         }
         return (
             <div>
-                <div className='leftNav'>
-                    <div>
-                        <Nav.Link href="/feed">
-                            <div className="Nav-Button" style={{ color: 'black' }}>
-                                <div style={{ borderBottom: 'none' }}>
-                                    <GiHouse size="25" color={'black'} />
-                                    Feed
-                                </div>
-                            </div>
-                        </Nav.Link>
-                    </div>
-                    <div>
-                        <Nav.Link href="/explore" style={{ color: '#30C692' }}>
-                            <div className="Nav-Button">
-                                <div style={{ borderBottom: '3px solid #30C692' }}>
-                                    <BsGeoAlt size="25" color={'#30C692'} />
-                                    Explore
-                                </div>
-                            </div>
-                        </Nav.Link>
-                    </div>
-                </div>
                 <div className="body">
                     {isLoaded ?
                         <Card className='modalCard'>

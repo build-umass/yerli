@@ -3,6 +3,7 @@ import Slider from './Slider'
 import { API, graphqlOperation } from 'aws-amplify';
 import mapboxgl from 'mapbox-gl';
 import '../../App.css';
+import queryString from 'query-string';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -15,6 +16,7 @@ import { BsSearch } from 'react-icons/bs'
 import { BsGeoAlt } from 'react-icons/bs'
 import { GiHouse } from 'react-icons/gi'
 import Nav from 'react-bootstrap/Nav'
+import Business from './Business.js'
 
 export default class Feed extends React.Component {
     constructor(props) {
@@ -28,11 +30,17 @@ export default class Feed extends React.Component {
             currentMarker: null,
             items: [],
             markers: [],
-            searchVal: null
+            searchVal: null,
+            redirectId: 0
         }
     }
 
     componentDidMount() {
+        const id = queryString.parse(this.props.location.search).id;
+        if(id !== undefined){
+            this.setState({redirectId: id});
+            return;
+        }
         const ListItems = `
         query {
             listLocalVersionProds {
@@ -98,21 +106,24 @@ export default class Feed extends React.Component {
                 mapItems = this.state.items.filter(business => business.name.toLowerCase().search(this.state.searchVal.toLowerCase()) !== -1);
             }
             mapItems.forEach(marker => { //Create map markers
-                const el = document.createElement('div');
-                el.className = 'marker';
-                el.style.backgroundImage = 'url(' + marker.photos[1] + ')';
-                el.style.backgroundSize = 'cover'
-                el.style.width = '35px';
-                el.style.height = '50px';
+                const elem = document.createElement('div');
+                const txt = document.createElement('div');
+                const img = document.createElement('div');
+                
+                txt.innerHTML = marker.name;
+                txt.className = 'markerText';
+                img.className = 'markerImg';
 
-                el.addEventListener('click', () => {
-                    this.setState({
-                        modalOpen: true,
-                        currentMarker: marker
-                    })
+                img.style.backgroundImage = 'url(' + marker.photos[1] + ')';
+
+                elem.appendChild(txt);
+                elem.appendChild(img);
+
+                elem.addEventListener('click', () => {
+                    //
                 })
 
-                this.state.markers.push(new mapboxgl.Marker(el)
+                this.state.markers.push(new mapboxgl.Marker(elem)
                     .setLngLat([marker.lon, marker.lat])
                     .addTo(this.state.map));
             });
@@ -141,6 +152,7 @@ export default class Feed extends React.Component {
                         </Nav.Link>
                     </div>
                 </div>
+                {this.state.redirectId === 0 ? 
                 <div className="body">
                     <Card className='searchCard'>
                         <Form inline>
@@ -161,6 +173,7 @@ export default class Feed extends React.Component {
                             businessCategory={searchSlider.title}
                         />
                     </Card> : null}
+                    {!searchVal ?
                     <Card className='filterCard'>
                         <Container>
                             <Row>
@@ -210,7 +223,7 @@ export default class Feed extends React.Component {
                                 </div>
                             </Row>
                         </Container>
-                    </Card>
+                    </Card> : null}
                     <Card className='mapCard'>
                         <div ref={el => this.mapContainer = el} className="mapContainer" />
                     </Card>
@@ -225,7 +238,7 @@ export default class Feed extends React.Component {
                             ))
                         }
                     </Card> : null}
-                </div>
+                </div> : <Business id={this.state.redirectId}/> }
             </div>
         )
     }

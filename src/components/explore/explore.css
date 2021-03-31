@@ -108,7 +108,7 @@
     height: 250px;
     left: 0%;
     right: 0%;
-    top: 63px;
+    top: 40px;
 
     background: #FFFFFF;
 }
@@ -116,6 +116,20 @@
 .mapContainer {
     width: 894px;
     height: 295px
+}
+
+.markerText {
+    color: black;
+    font-family: 'Jost', sans-serif;
+    position: relative;
+    left: 40px;
+    top: 30px;
+}
+
+.markerImg {
+    background-size: cover;
+    width: 35px;
+    height: 50px;
 }
 
 .businessCard {

@@ -1,7 +1,6 @@
 import React from 'react';
 import Feed from './components/Feed.js'
 import Explore from './components/explore/Explore.js'
-import Business from './components/explore/Business.js'
 
 import Navbar from './components/Navbar.js'
 import {
@@ -22,7 +21,6 @@ function App() {
           <Switch>        
             <Route path="/feed" component={Feed} />
             <Route exact path="/explore" component={Explore} />
-            <Route path="/explore/b/:id?" component={Business} />
             <Redirect from='/' to='/feed'/>
           </Switch>
         </Router>
