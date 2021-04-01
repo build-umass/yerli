@@ -110,18 +110,28 @@ export default class Feed extends React.Component {
                 const txt = document.createElement('div');
                 const img = document.createElement('div');
                 
+                txt.style.visibility = 'hidden';
                 txt.innerHTML = marker.name;
-                txt.className = 'markerText';
-                img.className = 'markerImg';
+                txt.id = 'markerText';
+                img.id = 'markerImg';
 
                 img.style.backgroundImage = 'url(' + marker.photos[1] + ')';
 
+                elem.onmouseover = () => {
+                    elem.firstChild.style.visibility = 'visible';                   
+                }
+
+                elem.onmouseout = () => {
+                    elem.firstChild.style.visibility = 'hidden';
+                }
+
+                elem.onclick = () => {
+                    window.location.href = '/explore?id=' + marker.id; 
+                }
+
                 elem.appendChild(txt);
                 elem.appendChild(img);
-
-                elem.addEventListener('click', () => {
-                    //
-                })
+                
 
                 this.state.markers.push(new mapboxgl.Marker(elem)
                     .setLngLat([marker.lon, marker.lat])

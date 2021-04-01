@@ -20,7 +20,8 @@ function App() {
         <Router>
           <Switch>        
             <Route path="/feed" component={Feed} />
-            <Route exact path="/explore" component={Explore} />
+            <Route path="/explore" component={Explore} />
+            <Route path="/details" component={Explore} />
             <Redirect from='/' to='/feed'/>
           </Switch>
         </Router>
