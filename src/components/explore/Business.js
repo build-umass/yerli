@@ -51,6 +51,14 @@ export default class Feed extends React.Component {
                     this.setState({ isLoaded: true, error })
                 })
     }
+    populateTopProducts(products){
+        let key = 0;
+        return products.map(product => (
+            <div className='text-dark' key={key++}>
+                {product}
+            </div>
+        ))
+    }
     render() {
         const { isLoaded } = this.state;
         const data = this.state.data;
@@ -91,6 +99,10 @@ export default class Feed extends React.Component {
                                 <Row className="modalMainBody">
                                     <Col md={6} className="text-left">
                                         <div className="text-dark modal-text">{data.business_bio}</div>
+                                        <h5 className='text-dark modal-title'>
+                                            Best Sellers:
+                                        </h5>
+                                        {this.populateTopProducts(data.topProducts)}
                                     </Col>
                                     <Col md={6} className="text-left">
                                         <div className="text-dark modal-text">
@@ -109,27 +121,9 @@ export default class Feed extends React.Component {
                                             <BsGeoAlt size={20} color='black' style={{ marginRight: '5px' }} />
                                             {data.address}
                                         </div>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col className="text-left">
-                                        <h5 className='text-dark modal-title'>
-                                            Best Sellers:
-                                  </h5>
-                                        <div className='text-dark'>
-                                            {data.topProducts[0]}
-                                        </div>
-                                        <div className='text-dark'>
-                                            {data.topProducts[1]}
-                                        </div>
-                                        <div className='text-dark'>
-                                            {data.topProducts[2]}
-                                        </div>
-                                    </Col>
-                                    <Col className="text-left">
                                         <h5 className='text-dark modal-title'>
                                             A word from the owner:
-                                    </h5>
+                                        </h5>
                                         <div className='text-dark'>{data.owner_bio}</div>
                                     </Col>
                                 </Row>
