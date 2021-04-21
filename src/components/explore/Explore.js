@@ -156,10 +156,6 @@ export default class Feed extends React.Component {
                     window.location.href = '/explore?id=' + marker.id;
                 }
 
-                // elem.appendChild(txt);
-                // elem.appendChild(img);
-
-
                 this.state.markers.push(new mapboxgl.Marker(elem)
                     .setLngLat([marker.lon, marker.lat])
                     .addTo(this.state.map));
@@ -167,7 +163,7 @@ export default class Feed extends React.Component {
         }
         return (
             <div>
-                <div className='leftNav'>
+                {/* <div className='leftNav'>
                     <div>
                         <Nav.Link href="/feed">
                             <div className="Nav-Button" style={{ color: 'black' }}>
@@ -188,7 +184,7 @@ export default class Feed extends React.Component {
                             </div>
                         </Nav.Link>
                     </div>
-                </div>
+                </div> */}
                 {this.state.redirectId === 0 ?
                     <div className="body">
                         <Card className='searchCard'>
@@ -204,13 +200,18 @@ export default class Feed extends React.Component {
                             </Form>
                         </Card>
                         {searchVal ?
-                            <Card className='searchResultCard'>
-                                <Slider
-                                    businessArr={searchSlider.places}
-                                    businessCategory={searchSlider.title}
-                                />
-                            </Card> : null}
-                        {!searchVal ?
+                            <div>
+                                {searchSlider.places.length > 0 ? 
+                                <Card className='searchResultCard'>
+                                    <Slider
+                                        businessArr={searchSlider.places}
+                                        businessCategory={searchSlider.title}
+                                    />
+                                </Card> : 
+                                <Card className='emptySearchResultCard'>
+                                    <div className='noBusinessesText'>No businesses matching '{searchVal}'</div></Card>}
+                            </div> : null}
+                        {/* {!searchVal ?
                             <Card className='filterCard'>
                                 <Container>
                                     <Row style={{ marginBottom: 10 }}>
@@ -260,7 +261,7 @@ export default class Feed extends React.Component {
                                         </div>
                                     </Row>
                                 </Container>
-                            </Card> : null}
+                            </Card> : null} */}
                         <Card className='mapCard'>
                             <div id='map'></div>
                         </Card>
