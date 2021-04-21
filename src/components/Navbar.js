@@ -15,7 +15,7 @@ export default function NavbarComponent() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <div>
-                        <Nav.Link>
+                        <Nav.Link target='_blank' rel="noopener noreferrer" href='https://airtable.com/shrF1mYf40GTKswiv'>
                             <div className="Nav-Text">
                                 <p>Feedback</p>
                             </div>
