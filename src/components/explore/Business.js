@@ -76,7 +76,7 @@ export default class Feed extends React.Component {
                                 <Row>
                                   <div>
                                       <a href='/explore'>
-                                        <Image className='backButton' src={require('../../images/vector/arrowleft.png')} />
+                                        <Image className='backButton' src={require("../../images/vector/arrowleft.png")} />
                                       </a> 
                                     <h3 className="text-dark backText">Go back</h3>
                                   </div>  
@@ -99,10 +99,13 @@ export default class Feed extends React.Component {
                                 <Row className="modalMainBody">
                                     <Col md={6} className="text-left">
                                         <div className="text-dark modal-text">{data.business_bio}</div>
+                                        {data.topProducts.length > 0 ? 
+                                        <div>
                                         <h5 className='text-dark modal-title'>
                                             Best Sellers:
                                         </h5>
                                         {this.populateTopProducts(data.topProducts)}
+                                        </div> : null}
                                     </Col>
                                     <Col md={6} className="text-left">
                                         <div className="text-dark modal-text">
