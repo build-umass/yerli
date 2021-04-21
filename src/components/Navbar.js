@@ -6,6 +6,7 @@ import '../App.css'
 export default function NavbarComponent() {
     return (
         <Navbar style={{backgroundColor: '#30C692', height: 80}} fluid='true' expand="lg">
+            <div style={{width: 940, display: 'flex', marginLeft: 'auto', marginRight: 'auto'}}>
             <Navbar.Brand href="/">
                 <div className="Logo">
                     <p>the Yerli.</p>
@@ -29,7 +30,7 @@ export default function NavbarComponent() {
                         </Nav.Link>
                     </div>
                     <div>
-                        <Nav.Link target='_blank' rel="noopener noreferrer" href='https://apps.apple.com/us/app/the-yerli/id1532573222'>
+                        <Nav.Link target='_blank' rel="noopener noreferrer" href='https://www.theyerli.com/download'>
                             <div className="Nav-Text">
                                 <p>Download the app</p>
                             </div>
@@ -37,6 +38,7 @@ export default function NavbarComponent() {
                     </div>
                 </Nav>
             </Navbar.Collapse>
+            </div>
         </Navbar >
     )
 }

@@ -1,6 +1,5 @@
 .body {
     width: 940px;
-    display: 'flex';
     align-items: center;
 }
 
@@ -24,6 +23,10 @@
     }
 }
 
+.card {
+    border-radius: 12px !important;
+}
+
 .searchCard {
     display: flex;
     flex-direction: column;
@@ -34,6 +37,8 @@
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
+
+    border-radius: 12px;
 
     position: static;
     height: 88px;
@@ -100,8 +105,8 @@
     height: 339px;
     left: 0%;
     right: 0%;
-    top: 55px;
-
+    top: 40px;
+    
     background: #FFFFFF;
 }
 
@@ -112,12 +117,44 @@
     padding: 22px 28px;
 
     position: static;
-    height: 250px;
+    height: 240px;
     left: 0%;
     right: 0%;
     top: 40px;
 
+    margin-bottom: 12px;
+
     background: #FFFFFF;
+}
+
+.emptySearchResultCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 28px;
+
+    position: static;
+    height: 80px;
+    left: 0%;
+    right: 0%;
+    top: 40px;
+
+    margin-bottom: 12px;
+
+    background: #FFFFFF;
+}
+
+.noBusinessesText {
+    width: 800px;
+    text-align: left;
+    margin-left: 10px;
+
+
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: 'Jost', sans-serif;
 }
 
 #map {
@@ -155,7 +192,7 @@
     position: static;
     left: 0%;
     right: 0%;
-    top: 70px;
+    top: 55px;
 
     background: #FFFFFF;
     border-radius: 12px;
@@ -259,10 +296,6 @@
 
 .titles h6 {
     font-weight: 400;
-}
-
-.wrap {
-    margin: .5rem 0;
 }
 
 .bottomImage {
