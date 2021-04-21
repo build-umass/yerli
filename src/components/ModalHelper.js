@@ -65,7 +65,7 @@ const convertTo12HourTime = (time) => {
 }
 const transformHoursOfOper = (hours) => {
     if (checkForMalformat(hours)) {
-        return ["Unknown hours of operation"]
+        return [" Unknown hours of operation"]
     }
 
     // this object maps from the start index of the pattern to an object with

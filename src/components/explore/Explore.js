@@ -66,7 +66,7 @@ export default class Feed extends React.Component {
                     this.setState({ isLoaded: true, error })
                 })
         const map = new mapboxgl.Map({
-            container: this.mapContainer,
+            container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [this.state.lng, this.state.lat],
             zoom: this.state.zoom
@@ -137,29 +137,27 @@ export default class Feed extends React.Component {
             mapItems.forEach(marker => { //Create map markers
                 const elem = document.createElement('div');
                 const txt = document.createElement('div');
-                const img = document.createElement('div');
 
-                txt.style.visibility = 'hidden';
                 txt.innerHTML = marker.name;
+                elem.id = 'marker';
                 txt.id = 'markerText';
-                img.id = 'markerImg';
 
-                img.style.backgroundImage = 'url(' + marker.photos[1] + ')';
+                elem.style.backgroundImage = 'url(' + marker.photos[1] + ')';
 
                 elem.onmouseover = () => {
-                    elem.firstChild.style.visibility = 'visible';
+                    elem.appendChild(txt);
                 }
 
                 elem.onmouseout = () => {
-                    elem.firstChild.style.visibility = 'hidden';
+                    elem.removeChild(txt);
                 }
 
                 elem.onclick = () => {
                     window.location.href = '/explore?id=' + marker.id;
                 }
 
-                elem.appendChild(txt);
-                elem.appendChild(img);
+                // elem.appendChild(txt);
+                // elem.appendChild(img);
 
 
                 this.state.markers.push(new mapboxgl.Marker(elem)
@@ -175,8 +173,8 @@ export default class Feed extends React.Component {
                             <div className="Nav-Button" style={{ color: 'black' }}>
                                 <div style={{ borderBottom: 'none' }}>
                                     <GiHouse size="25" color={'black'} />
-                                        Feed
-                                    </div>
+                                    Feed
+                                </div>
                             </div>
                         </Nav.Link>
                     </div>
@@ -185,8 +183,8 @@ export default class Feed extends React.Component {
                             <div className="Nav-Button">
                                 <div style={{ borderBottom: '3px solid #30C692' }}>
                                     <BsGeoAlt size="25" color={'#30C692'} />
-                                        Explore
-                                    </div>
+                                    Explore
+                                </div>
                             </div>
                         </Nav.Link>
                     </div>
@@ -264,7 +262,7 @@ export default class Feed extends React.Component {
                                 </Container>
                             </Card> : null}
                         <Card className='mapCard'>
-                            <div ref={el => this.mapContainer = el} className="mapContainer" />
+                            <div id='map'></div>
                         </Card>
                         {isLoaded ? <Card className='businessCard'>
                             {
