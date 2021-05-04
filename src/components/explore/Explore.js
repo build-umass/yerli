@@ -25,11 +25,20 @@ export default class Feed extends React.Component {
             markers: [],
             searchVal: null,
             redirectId: 0,
-            filterFlag: null
+            filterFlag: null,
+            userLat: null,
+            userLong: null
         }
     }
 
     componentDidMount() {
+        navigator.geolocation.getCurrentPosition(pos => {
+              this.setState({userLat: pos.coords.latitude, userLong: pos.coords.longitude})
+            },
+            err =>  {
+              console.error("Error fetching location: " +  err.message);
+            }
+          );
         const id = queryString.parse(this.props.location.search).id;
         if (id !== undefined) {
             this.setState({ redirectId: id });
@@ -90,8 +99,8 @@ export default class Feed extends React.Component {
         }
         let sliders = [
             {
-                title: "Nearby",
-                subtitle: "Businesses near you",
+                title: "Local Businesses",
+                subtitle: "A selection of businesses",
                 places: this.state.items.filter(business => business.flags === null || business.flags === "")
             },
             {
@@ -153,6 +162,13 @@ export default class Feed extends React.Component {
                     .setLngLat([marker.lon, marker.lat])
                     .addTo(this.state.map));
             });
+            if(this.state.userLat !== null){
+                const elem = document.createElement('div');
+                elem.id = 'userMarker';
+                this.state.markers.push(new mapboxgl.Marker(elem)
+                    .setLngLat([this.state.userLong, this.state.userLat])
+                    .addTo(this.state.map));
+            }
         }
         return (
             <div>
