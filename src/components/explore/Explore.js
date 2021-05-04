@@ -5,17 +5,10 @@ import mapboxgl from 'mapbox-gl';
 import '../../App.css';
 import queryString from 'query-string';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Image from 'react-bootstrap/Image'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { BsSearch } from 'react-icons/bs'
-import { BsGeoAlt } from 'react-icons/bs'
-import { GiHouse } from 'react-icons/gi'
-import Nav from 'react-bootstrap/Nav'
 import Business from './Business.js'
 
 export default class Feed extends React.Component {
