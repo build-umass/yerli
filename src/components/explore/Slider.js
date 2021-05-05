@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 
-export default function Slider({ businessArr, businessCategory}) {
+export default function Slider({ businessArr, businessCategory, loc}) {
     const [indices, setIndices] = useState({ start: 0, finish: 4 })
     const computeArr = () => {
         if (indices.start < indices.finish) {
@@ -70,7 +70,7 @@ export default function Slider({ businessArr, businessCategory}) {
             </div>
             <div className="slider-wrapper">
                 {computeArr(businessArr).map((curr) => (
-                    <BusinessCard businessTitle={curr.name} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
+                    <BusinessCard businessTitle={curr.name} userLocation={loc} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
                 ))}
             </div>
         </div>

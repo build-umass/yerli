@@ -26,14 +26,13 @@ export default class Feed extends React.Component {
             searchVal: null,
             redirectId: 0,
             filterFlag: null,
-            userLat: null,
-            userLong: null
+            coords: null
         }
     }
 
     componentDidMount() {
         navigator.geolocation.getCurrentPosition(pos => {
-              this.setState({userLat: pos.coords.latitude, userLong: pos.coords.longitude})
+              this.setState({coords: pos.coords})
             },
             err =>  {
               console.error("Error fetching location: " +  err.message);
@@ -113,6 +112,7 @@ export default class Feed extends React.Component {
         let key = 0;
         let mapItems = this.state.items;
         if (isLoaded) {
+            console.log(this.state.items)
             if (searchVal) {
                 for (const marker of markers) {
                     marker.remove();
@@ -162,11 +162,11 @@ export default class Feed extends React.Component {
                     .setLngLat([marker.lon, marker.lat])
                     .addTo(this.state.map));
             });
-            if(this.state.userLat !== null){
+            if(this.state.coords !== null){
                 const elem = document.createElement('div');
                 elem.id = 'userMarker';
                 this.state.markers.push(new mapboxgl.Marker(elem)
-                    .setLngLat([this.state.userLong, this.state.userLat])
+                    .setLngLat([this.state.coords.longitude, this.state.coords.latitude])
                     .addTo(this.state.map));
             }
         }
@@ -280,6 +280,7 @@ export default class Feed extends React.Component {
                                     <Slider
                                         businessArr={curr.places}
                                         businessCategory={curr.title}
+                                        loc={this.state.coords}
                                         key={key++}
                                     />
                                 ))
