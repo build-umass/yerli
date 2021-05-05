@@ -52,7 +52,7 @@ export default function Slider({ businessArr, businessCategory, loc}) {
                                 onClick={() => {
                                     updateIndicesPrev();
                                 }}>
-                                <Image src={require('../../images/vector/arrowleft.png')} />
+                                <Image src={require('../../images/vector/arrowleft.svg')}/>
                             </div> : null}
                     </Col>
                     <Col>
@@ -63,7 +63,7 @@ export default function Slider({ businessArr, businessCategory, loc}) {
                                     updateIndicesNext();
                                 }
                             }}>
-                            <Image src={require('../../images/vector/arrowright.png')} />
+                            <Image src={require('../../images/vector/arrowright.svg')} />
                         </div> : null}
                     </Col>
                 </Row>

@@ -76,7 +76,7 @@ export default class Feed extends React.Component {
                                 <Row>
                                   <div>
                                       <a href='/explore'>
-                                        <Image className='backButton' src={require("../../images/vector/arrowleft.png")} />
+                                        <Image className='backButton' src={require("../../images/vector/arrowleft.svg")} />
                                       </a> 
                                     <h3 className="text-dark backText">Go back</h3>
                                   </div>  

@@ -200,11 +200,11 @@ export default class Feed extends React.Component {
                             <Form inline>
                                 <InputGroup>
                                     <InputGroup.Prepend>
-                                        <InputGroup.Text style={{ backgroundColor: 'white', paddingRight: 0, borderTopLeftRadius: 20, borderBottomLeftRadius: 20 }}>
+                                        <InputGroup.Text style={{ backgroundColor: 'white', padding: 0, border: 'none' }}>
                                             <BsSearch size="15" color="#888" />
                                         </InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <FormControl onChange={event => this.setState({ searchVal: event.target.value })} type="text" placeholder="Search for a business near you" className="mr-sm-2" style={{ borderLeft: 'none', width: 845, borderTopRightRadius: 20, borderBottomRightRadius: 20 }} />
+                                    <FormControl onChange={event => this.setState({ searchVal: event.target.value })} type="text" placeholder="Search for a business near you" style={{ width: 870, border: 'none', boxShadow: 'none'}} />
                                 </InputGroup>
                             </Form>
                         </Card>
@@ -215,6 +215,7 @@ export default class Feed extends React.Component {
                                     <Slider
                                         businessArr={searchSlider.places}
                                         businessCategory={searchSlider.title}
+                                        loc={this.state.coords}
                                     />
                                 </Card> : 
                                 <Card className='emptySearchResultCard'>

@@ -7,12 +7,12 @@ export default function BusinessCard({ businessTitle, userLocation, backgroundPi
   return (
     <div>
       <a href={'/explore?id=' + data.id} style={{ margin: '0 0.35rem', display: 'block' }}>
-        <Card className="main-card" bg={'dark'} style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("${backgroundPicture}")` }}>
+        <Card className="main-card" bg={'dark'} style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) ), url("${backgroundPicture}")` }}>
           <Card.Body>
             <Card.Title className="business-title">{businessTitle}<br />
               {userLocation !== null ?
                 <div className="mileage">
-                  <Image width={13} src={require("../../images/vector/Vector.png")} className='mileageImg' />
+                  <Image width={13} src={require("../../images/vector/mile.png")} className='mileageImg' />
                   {(getDistance({ latitude: userLocation.latitude, longitude: userLocation.longitude }, {
                     latitude: data.lat,
                     longitude: data.lon
