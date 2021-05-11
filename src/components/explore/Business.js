@@ -83,7 +83,7 @@ export default class Feed extends React.Component {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <Image className="bottomImage" src={data.photos[2]} ></Image>
+                                        <Image className="topImage" src={data.photos[2]} ></Image>
                                     </Col>
                                 </Row>
                                 <Row>
