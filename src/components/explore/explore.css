@@ -16,13 +16,6 @@
     font-size: 20px;
 }
 
-@media (max-width:1300px){
-    .leftNav {
-        left: 0.5%;
-        font-size: 15px;
-    }
-}
-
 .card {
     border-radius: 12px !important;
 }
@@ -45,6 +38,12 @@
     margin-bottom: 12px;
 
     background: #FFFFFF;
+}
+
+#searchBar {
+    width: 870px;
+    border: none;
+    box-shadow: none;
 }
 
 .filterCard {
@@ -99,7 +98,7 @@
     align-items: flex-start;
     padding: 22px 28px;
 
-    height: 339px;
+    height: 365px;
     margin-bottom: 12px;
 
     border: none !important;
@@ -107,15 +106,30 @@
     background: #FFFFFF;
 }
 
+#mapPageCard {
+    height: 500px;
+    padding-left: 37px;
+    margin-top: 22px;
+}
+
+#mapPageSearch {
+    padding: 6px 6px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #D4D4D4;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
 .searchResultCard {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 22px 28px;
-
-    height: 240px;
+    padding: 30px  28px 0px 28px;
 
     margin-bottom: 12px;
+
+    overflow-x: hidden;
 
     border: none !important;
 
@@ -127,8 +141,6 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 18px 28px;
-
-    height: 80px;
 
     border: none !important;
 
@@ -151,8 +163,15 @@
 
 #map {
     position: absolute;
-    width: 894px;
+    width: 870px;
     height: 295px;
+    background-size: 100%;
+}
+
+#mapPage {
+    position: absolute;
+    width: 894px;
+    height: 340px;
     background-size: 100%;
 }
 
@@ -165,10 +184,10 @@
 }
 
 #userMarker {
-    background-image: url('../../images/vector/Vector.svg');
+    background-image: url('../../images/vector/navigation-2\(1\).svg');
     background-size: 100%;
     width: 30px;
-    height:  41px;
+    height:  30px;
 }
 
 #markerText {
@@ -188,6 +207,8 @@
     padding: 22px 28px;
     margin-bottom: 21px;
 
+    overflow-x: hidden;
+
     border: none !important;
 
     background: #FFFFFF;
@@ -203,7 +224,6 @@
 }
 
 .businessCategory {
-    width: 800px;
     font-family: 'Jost', sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -267,7 +287,7 @@
 .backButton {
     float: left;
     margin-top: 7px;
-    margin-right: 10px;
+    margin-right: 11px;
 }
 
 /* SLIDER STYLES */
@@ -275,14 +295,14 @@
     width: 21px;
     height: 21px;
     cursor: pointer;
-    transition: .25s;
-    margin-left: 70px;
+    display: inline-block;
 }
 .nextSlide {
     width: 21px;
     height: 21px;
     cursor: pointer;
-    margin-left: -25px;
+    margin-left: 10px;
+    display: inline-block;
 }
 
 .slider-wrapper{
@@ -328,4 +348,146 @@
 
 .modalMainBody {
     margin-bottom: 10px;
+}
+
+
+@media (max-width:1300px){
+    .leftNav {
+        left: 0.5%;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:990px){
+    .body {
+        width: 715px;
+    }
+    #searchBar {
+        width: 645px;
+    }
+    #map, #mapPage {
+        width: 650px;
+    }
+    .businessCategoryRow {
+        margin-right: 0 !important;
+    }
+    .noBusinessesText {
+        width: 660px;
+        font-size: 24px;
+    }
+    .businessCategory {
+        font-size: 24px;
+    }
+}
+
+@media (max-width:750px){
+    .body {
+        width: 500px;
+    }
+    #searchBar {
+        width: 430px;
+    }
+    #map, #mapPage {
+        width: 435px;
+    }
+    .prevSlide {
+        margin-right: 0px;
+        margin-left: -15px;
+    }
+    .noBusinessesText {
+        width: 445px;
+        font-size: 20px;
+    }
+    .businessCategory {
+        font-size: 20px;
+    }
+}
+
+@media (max-width:575px){
+    .body {
+        width: 450px;
+    }
+    #searchBar {
+        width: 380px;
+    }
+    .mapCard {
+        height: 550px;
+    }
+    #map {
+        width: 390px;
+        height: 480px;
+    }
+    #mapPageCard {
+        height: 650px;
+    }
+    #mapPage {
+        width: 410px;
+        height: 490px;
+    }
+    .noBusinessesText {
+        width: 365px;
+    }
+    .prevSlide {
+        margin-right: 0px;
+        margin-left: -50px;
+    }
+}
+
+@media (max-width: 480px){
+    .body {
+        width: 370px;
+    }
+    #searchBar {
+        width: 300px;
+    }
+    .mapCard {
+        height: 480px;
+    }
+    #map {
+        width: 315px;
+        height: 415px;
+    }
+    #mapPage {
+        width: 325px;
+        height: 490px;
+    }
+    .noBusinessesText {
+        width: 265px;
+    }
+    .prevSlide {
+        margin-right: 0px;
+        margin-left: -140px;
+    }
+}
+
+@media (max-width: 400px){
+    .body {
+        width: 300px;
+    }
+    #searchBar {
+        width: 230px;
+        font-size: 14px;
+    }
+    .mapCard {
+        height: 400px;
+    }
+    #map {
+        width: 250px;
+        height: 335px;
+    }
+    #mapPage {
+        width: 260px;
+        height: 490px;
+    }
+    .noBusinessesText {
+        width: 265px;
+        font-size: 16px;
+    }
+    .businessCategory {
+        font-size: 16px;
+    }
+    .prevSlide {
+        margin-right: 0px;
+        margin-left: -200px;
+    }
 }

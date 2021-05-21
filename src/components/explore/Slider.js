@@ -1,12 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BusinessCard from './BusinessCard.js'
 import './explore.css'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 
-export default function Slider({ businessArr, businessCategory, loc}) {
-    const [indices, setIndices] = useState({ start: 0, finish: 4 })
+function getSlideNum() {
+    if (window.innerWidth > 990) {
+        return 4;
+    }
+    if (window.innerWidth > 750) {
+        return 3;
+    }
+    if (window.innerWidth > 575) {
+        return 2;
+    }
+    return 2;
+}
+
+export default function Slider({ businessArr, businessCategory, loc }) {
+    const [indices, setIndices] = useState({ start: 0, finish: getSlideNum() })
+
+    useEffect(() => {
+        function handleResize() {
+            setIndices({ start: 0, finish: getSlideNum() })
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const computeArr = () => {
         if (indices.start < indices.finish) {
             return businessArr.slice(indices.start, indices.finish)
@@ -40,37 +63,33 @@ export default function Slider({ businessArr, businessCategory, loc}) {
     }
 
     return (
-        <div className="wrap">
+        <div>
             <div className="titles">
-                <Row>
-                    <Col lg={10}>
+                <Row className="businessCategoryRow">
+                    <Col>
                         <h3 className="businessCategory">{businessCategory}</h3>
                     </Col>
-                    <Col>
-                        {businessArr.length > 4 ?
+                    <Col xs={1} style={{padding: 0, display: 'inline-block'}}>
+                        {businessArr.length > getSlideNum() ?
                             <div className="prevSlide"
                                 onClick={() => {
                                     updateIndicesPrev();
                                 }}>
-                                <Image src={require('../../images/vector/arrowleft.svg')}/>
+                                <Image src={require('../../images/vector/arrowleft.svg')} />
                             </div> : null}
-                    </Col>
-                    <Col>
-                        {businessArr.length > 4 ?
-                        <div className="nextSlide"
-                            onClick={() => {
-                                if (businessArr.length > 4) {
+                            {businessArr.length > getSlideNum() ?
+                            <div className="nextSlide"
+                                >
+                                <Image src={require('../../images/vector/arrowright.svg')} onClick={() => {
                                     updateIndicesNext();
-                                }
-                            }}>
-                            <Image src={require('../../images/vector/arrowright.svg')} />
-                        </div> : null}
+                                }}/>
+                            </div> : null}
                     </Col>
                 </Row>
             </div>
             <div className="slider-wrapper">
                 {computeArr(businessArr).map((curr) => (
-                    <BusinessCard businessTitle={curr.name} userLocation={loc} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)}/>
+                    <BusinessCard businessTitle={curr.name} userLocation={loc} backgroundPicture={curr.photos[0]} key={curr.id} data={businessArr.find(item => item.id === curr.id)} />
                 ))}
             </div>
         </div>
