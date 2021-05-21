@@ -1,6 +1,7 @@
 import React from 'react';
 import Feed from './components/Feed.js'
 import Explore from './components/explore/Explore.js'
+import MapPage from './components/explore/MapPage.js'
 
 import Navbar from './components/Navbar.js'
 import {
@@ -21,7 +22,8 @@ function App() {
           <Switch>        
             <Route path="/feed" component={Feed} />
             <Route path="/explore" component={Explore} />
-            <Route path="/details" component={Explore} />
+            <Route path="/detail" component={Explore} />
+            <Route path="/map" component={MapPage} />
             <Redirect from='/' to='/feed'/>
           </Switch>
         </Router>

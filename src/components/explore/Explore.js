@@ -6,6 +6,8 @@ import '../../App.css';
 import queryString from 'query-string';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { BsSearch } from 'react-icons/bs'
@@ -144,12 +146,20 @@ export default class Feed extends React.Component {
                 txt.id = 'markerText';
 
                 elem.style.backgroundImage = 'url(' + marker.photos[1] + ')';
-
+                
                 elem.onmouseover = () => {
                     elem.appendChild(txt);
                 }
 
+                elem.ontouchstart = () => {
+                    elem.appendChild(txt);
+                }
+
                 elem.onmouseout = () => {
+                    elem.removeChild(txt);
+                }
+
+                elem.ontouchend = () => {
                     elem.removeChild(txt);
                 }
 
@@ -167,7 +177,7 @@ export default class Feed extends React.Component {
                 const elem = document.createElement('div');
                 elem.id = 'userMarker';
                 this.state.markers.push(new mapboxgl.Marker(elem, {
-                    offset: [0,-41/2]
+                    offset: [0,-30/2]
                 })
                     .setLngLat([this.state.coords.longitude, this.state.coords.latitude])
                     .addTo(this.state.map));
@@ -207,7 +217,7 @@ export default class Feed extends React.Component {
                                             <BsSearch size="15" color="#888" />
                                         </InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <FormControl onChange={event => this.setState({ searchVal: event.target.value })} type="text" placeholder="Search for a business near you" style={{ width: 870, border: 'none', boxShadow: 'none'}} />
+                                    <FormControl id="searchBar" onChange={event => this.setState({ searchVal: event.target.value })} type="text" placeholder="Search for a business near you" />
                                 </InputGroup>
                             </Form>
                         </Card>
@@ -276,7 +286,17 @@ export default class Feed extends React.Component {
                                 </Container>
                             </Card> : null} */}
                         <Card className='mapCard'>
+                        <Row  style={{marginLeft: 5}}>
+                            <div>
+                                <a href='/explore'>
+                                    <Image className='' src={require("../../images/vector/arrowright.svg")} />
+                                </a>
+                                <h3 className="text-dark backText" style={{marginLeft: 10, fontSize: 20}}>View full map</h3>
+                            </div>
+                        </Row>
+                        <Row  style={{marginLeft: 5}}>
                             <div id='map'></div>
+                        </Row>                          
                         </Card>
                         {isLoaded ? <Card className='businessCard'>
                             {
