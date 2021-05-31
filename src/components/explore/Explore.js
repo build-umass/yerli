@@ -288,7 +288,7 @@ export default class Feed extends React.Component {
                         <Card className='mapCard'>
                         <Row  style={{marginLeft: 5}}>
                             <div>
-                                <a href='/explore'>
+                                <a href='/map'>
                                     <Image className='' src={require("../../images/vector/arrowright.svg")} />
                                 </a>
                                 <h3 className="text-dark backText" style={{marginLeft: 10, fontSize: 20}}>View full map</h3>
